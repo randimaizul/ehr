@@ -69,14 +69,15 @@ class Users extends REST_Controller
     function login_post()
     {
         $username = $this->post('username');
-        $password = $this->post('password');
-        $this->db->where('username',$username);
-        $this->db->where('password',$password);
-        $login = $this->db->get('users');
-        if($login > 0 ){
-            $this->response($login,REST_Controller::HTTP_OK);
+        $password = md5($this->post('password'));
+
+        $login = $this->db->query("SELECT * FROM users WHERE username='$username' AND password='$password' AND status='2'");
+        if($login->result_array()!=NULL){
+            // echo "ADA";
+            $this->response($login->result(),REST_Controller::HTTP_OK);
         }else {
-            $this->response(['status' => FALSE], REST_Controller::HTTP_NOT_FOUND);
+            // echo "KOSONG";
+            $this->response(['status' => 'Wrong username or password'], REST_Controller::HTTP_NOT_FOUND);
         }
 
     }
