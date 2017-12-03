@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9f111b</color>
+    <color name="colorPrimaryDark">#B11623</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="viewBg">#f1f5f8</color>
+    <color name="poli_title">#4c4c4c</color>
+    <color name="textred">#ca362c</color>
+    <color name="textwhite">#fff</color>
+    <color name="div">#d5c5a4</color>
+    <color name="text">#32353e</color>
+</resources>
