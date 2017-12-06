@@ -60,11 +60,11 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String kode_pasien = txtKoPas.getText().toString();
+                final String username = txtKoPas.getText().toString();
                 final String password = txtPassword.getText().toString();
 
-                if(TextUtils.isEmpty(kode_pasien) || TextUtils.isEmpty(password)){
-                    builder.setMessage("Kode Pasien dan Password\nHarap diisi");
+                if(TextUtils.isEmpty(username) || TextUtils.isEmpty(password)){
+                    builder.setMessage("Username dan Password\nHarap diisi");
                     builder.setNegativeButton("OK", null);
                     builder.show();
                 }else {
@@ -76,14 +76,15 @@ public class LoginActivity extends AppCompatActivity {
                             try {
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean error = jsonResponse.getBoolean("error");
+                                //builder.setMessage("tes");
 
                                 if (!error) {
 
-                                    String id_pasien = (String) jsonResponse.getJSONObject("user").getString("id_pasien");
+                                    String id = (String) jsonResponse.getJSONObject("user").getString("id");
                                     //String password = (String) jsonResponse.getJSONObject("password").getString("password");
 
                                     Intent inmain = new Intent(LoginActivity.this, MainActivity.class);
-                                    inmain.putExtra("id_pasien", id_pasien);
+                                    inmain.putExtra("id", id);
                                     //intent.putExtra("password", password);
                                     Toast.makeText(LoginActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
 
@@ -107,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     };
 
-                    LoginRequest loginRequest = new LoginRequest(kode_pasien, password, responseListener);
+                    LoginRequest loginRequest = new LoginRequest(username, password, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                     queue.add(loginRequest);
                 }

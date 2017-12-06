@@ -15,15 +15,16 @@ import java.util.Map;
 public class RegisterRequest extends StringRequest{
 
     //private static final String REGISTER_REQUEST_URL = "http://192.168.1.39:8080/rs/regis.php";
-    private static final String REGISTER_REQUEST_URL = "http://www.antrianrs.esy.es/regiss.php";
+    //private static final String REGISTER_REQUEST_URL = "http://www.antrianrs.esy.es/regiss.php";
+    private static final String REGISTER_REQUEST_URL = "http://172.20.35.49:8080/ehr/regis.php";
     private Map<String, String> params;
 
-    public RegisterRequest(String kode_pasien, String no_telepon, String email, String password, Response.Listener<String> listener){
+    public RegisterRequest(String username, String no_telepon, String password, Response.Listener<String> listener){
         super(Method.POST,REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
-        params.put("kode_pasien", kode_pasien);
+        params.put("username", username);
         params.put("no_telepon", no_telepon);
-        params.put("email", email);
+        //params.put("email", email);
         params.put("password", password);
     }
 
