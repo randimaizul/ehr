@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Des 2017 pada 19.27
+-- Generation Time: 13 Des 2017 pada 19.57
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -99,7 +99,7 @@ CREATE TABLE `pasien` (
   `agama` varchar(20) DEFAULT NULL,
   `nama_orangtua` varchar(50) DEFAULT NULL,
   `golongan_darah` varchar(5) DEFAULT NULL,
-  `id_user` varchar(50) NOT NULL
+  `id_user` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -107,7 +107,7 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`id_pasien`, `id_asuransi`, `nama_pasien`, `alamat`, `no_asuransi`, `umur`, `no_telepon`, `agama`, `nama_orangtua`, `golongan_darah`, `id_user`) VALUES
-(1, NULL, 'Ismail Adima', 'Bogor Baru', NULL, '23', '08156706780', 'islam', 'Heru Wiajayanto', 'AB', 'cdb4a967ba33c3a9fe2bbe674aafc3e2');
+(1, NULL, 'Ismail Adima', 'Bogor Baru', NULL, '23', '08156706780', 'islam', 'Heru Wiajayanto', 'AB', 0);
 
 -- --------------------------------------------------------
 
@@ -200,7 +200,7 @@ CREATE TABLE `rekam_medis` (
 --
 
 CREATE TABLE `rs_poli` (
-  `id` int(10) NOT NULL,
+  `id_rs_poli` int(10) NOT NULL,
   `id_rs` int(10) NOT NULL,
   `id_poli` int(10) NOT NULL,
   `id_dokter` int(10) DEFAULT NULL
@@ -210,7 +210,7 @@ CREATE TABLE `rs_poli` (
 -- Dumping data untuk tabel `rs_poli`
 --
 
-INSERT INTO `rs_poli` (`id`, `id_rs`, `id_poli`, `id_dokter`) VALUES
+INSERT INTO `rs_poli` (`id_rs_poli`, `id_rs`, `id_poli`, `id_dokter`) VALUES
 (1, 1, 1, NULL),
 (2, 1, 2, NULL),
 (3, 1, 4, NULL),
@@ -250,7 +250,7 @@ INSERT INTO `rumah_sakit` (`id_rs`, `nama_rs`, `alamat`, `akreditasi`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status` enum('0','1','2') NOT NULL COMMENT '0 = superadmin,1 = admin, 2 = pasien'
@@ -260,7 +260,7 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `status`) VALUES
+INSERT INTO `users` (`id_user`, `username`, `password`, `status`) VALUES
 (4, 'ismailadima@gmail.com', 'b3c55a02882e9050dcd4a6739d4a288c', '2');
 
 --
@@ -277,7 +277,9 @@ ALTER TABLE `asuransi`
 -- Indexes for table `daftar_obat`
 --
 ALTER TABLE `daftar_obat`
-  ADD PRIMARY KEY (`id_daftar_obat`);
+  ADD PRIMARY KEY (`id_daftar_obat`),
+  ADD KEY `fk_dfObat_obat` (`id_obat`),
+  ADD KEY `fk_dfObat_rekmed` (`id_rekam_medis`);
 
 --
 -- Indexes for table `dokter`
@@ -295,7 +297,9 @@ ALTER TABLE `obat`
 -- Indexes for table `pasien`
 --
 ALTER TABLE `pasien`
-  ADD PRIMARY KEY (`id_pasien`);
+  ADD PRIMARY KEY (`id_pasien`),
+  ADD KEY `fk_asuransi` (`id_asuransi`),
+  ADD KEY `fk_pasien_users` (`id_user`);
 
 --
 -- Indexes for table `pegawai`
@@ -307,13 +311,17 @@ ALTER TABLE `pegawai`
 -- Indexes for table `penanganan`
 --
 ALTER TABLE `penanganan`
-  ADD PRIMARY KEY (`id_penanganan`);
+  ADD PRIMARY KEY (`id_penanganan`),
+  ADD KEY `fk_penanganan_rekmed` (`id_rekam_medis`);
 
 --
 -- Indexes for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  ADD PRIMARY KEY (`id_pendaftaran`);
+  ADD PRIMARY KEY (`id_pendaftaran`),
+  ADD KEY `fk_daftar_pasien` (`id_pasien`),
+  ADD KEY `fk_daftar_pegawai` (`id_pegawai`),
+  ADD KEY `fk_daftar_rsPoli` (`id_rs_poli`);
 
 --
 -- Indexes for table `poli`
@@ -325,13 +333,17 @@ ALTER TABLE `poli`
 -- Indexes for table `rekam_medis`
 --
 ALTER TABLE `rekam_medis`
-  ADD PRIMARY KEY (`id_rekam_medis`);
+  ADD PRIMARY KEY (`id_rekam_medis`),
+  ADD KEY `fk_rekmed_pasien` (`id_pasien`);
 
 --
 -- Indexes for table `rs_poli`
 --
 ALTER TABLE `rs_poli`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_rs_poli`),
+  ADD KEY `fk_rsPoli_rs` (`id_rs`),
+  ADD KEY `fk_rsPoli_poli` (`id_poli`),
+  ADD KEY `fk_rsPoli_dokter` (`id_dokter`);
 
 --
 -- Indexes for table `rumah_sakit`
@@ -343,7 +355,7 @@ ALTER TABLE `rumah_sakit`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -403,7 +415,7 @@ ALTER TABLE `rekam_medis`
 -- AUTO_INCREMENT for table `rs_poli`
 --
 ALTER TABLE `rs_poli`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_rs_poli` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `rumah_sakit`
 --
@@ -413,7 +425,53 @@ ALTER TABLE `rumah_sakit`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `daftar_obat`
+--
+ALTER TABLE `daftar_obat`
+  ADD CONSTRAINT `fk_dfObat_obat` FOREIGN KEY (`id_obat`) REFERENCES `obat` (`id_obat`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_dfObat_rekmed` FOREIGN KEY (`id_rekam_medis`) REFERENCES `rekam_medis` (`id_rekam_medis`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `pasien`
+--
+ALTER TABLE `pasien`
+  ADD CONSTRAINT `fk_asuransi` FOREIGN KEY (`id_asuransi`) REFERENCES `asuransi` (`id_asuransi`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_pasien_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `penanganan`
+--
+ALTER TABLE `penanganan`
+  ADD CONSTRAINT `fk_penanganan_rekmed` FOREIGN KEY (`id_rekam_medis`) REFERENCES `rekam_medis` (`id_rekam_medis`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `pendaftaran`
+--
+ALTER TABLE `pendaftaran`
+  ADD CONSTRAINT `fk_daftar_pasien` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_daftar_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_daftar_rsPoli` FOREIGN KEY (`id_rs_poli`) REFERENCES `rs_poli` (`id_rs_poli`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `rekam_medis`
+--
+ALTER TABLE `rekam_medis`
+  ADD CONSTRAINT `fk_rekmed_pasien` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `rs_poli`
+--
+ALTER TABLE `rs_poli`
+  ADD CONSTRAINT `fk_rsPoli_dokter` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_rsPoli_poli` FOREIGN KEY (`id_poli`) REFERENCES `poli` (`id_poli`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_rsPoli_rs` FOREIGN KEY (`id_rs`) REFERENCES `rumah_sakit` (`id_rs`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
