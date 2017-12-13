@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Nov 2017 pada 21.43
+-- Generation Time: 13 Des 2017 pada 19.27
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -19,6 +19,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `ehr`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `asuransi`
+--
+
+CREATE TABLE `asuransi` (
+  `id_asuransi` int(10) NOT NULL,
+  `jenis_asuransi` varchar(100) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -43,20 +54,19 @@ CREATE TABLE `dokter` (
   `id_dokter` int(10) NOT NULL,
   `nama_dokter` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
-  `no_telp` varchar(20) NOT NULL,
-  `id_rs_poli` int(10) DEFAULT NULL
+  `no_telp` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `dokter`
 --
 
-INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `alamat`, `no_telp`, `id_rs_poli`) VALUES
-(1, 'Dr. Lathif', 'Depok', '08123456789', 1),
-(2, 'Dr. Ritya', 'Bogor', '08136879131', 2),
-(3, 'Dr. Dwi Putra', 'Depok', '08567281617', 2),
-(4, 'Dr. Randi', 'Jakarta', '08163816817', 3),
-(5, 'Dr. Maizul', 'Jakarta', '08163816811', 4);
+INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `alamat`, `no_telp`) VALUES
+(1, 'Dr. Lathif', 'Depok', '08123456789'),
+(2, 'Dr. Ritya', 'Bogor', '08136879131'),
+(3, 'Dr. Dwi Putra', 'Depok', '08567281617'),
+(4, 'Dr. Randi', 'Jakarta', '08163816817'),
+(5, 'Dr. Maizul', 'Jakarta', '08163816811');
 
 -- --------------------------------------------------------
 
@@ -80,26 +90,24 @@ CREATE TABLE `obat` (
 
 CREATE TABLE `pasien` (
   `id_pasien` int(10) NOT NULL,
+  `id_asuransi` int(10) DEFAULT NULL,
   `nama_pasien` varchar(250) NOT NULL,
-  `alamat` text NOT NULL,
-  `jenis_asuransi` varchar(50) DEFAULT NULL,
+  `alamat` text,
   `no_asuransi` varchar(25) DEFAULT NULL,
-  `umur` varchar(10) NOT NULL,
+  `umur` varchar(10) DEFAULT NULL,
   `no_telepon` varchar(20) NOT NULL,
-  `agama` varchar(20) NOT NULL,
-  `nama_orangtua` varchar(50) NOT NULL,
-  `golongan_darah` varchar(5) NOT NULL,
-  `id_user` varchar(50) DEFAULT NULL
+  `agama` varchar(20) DEFAULT NULL,
+  `nama_orangtua` varchar(50) DEFAULT NULL,
+  `golongan_darah` varchar(5) DEFAULT NULL,
+  `id_user` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `pasien`
 --
 
-INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `alamat`, `jenis_asuransi`, `no_asuransi`, `umur`, `no_telepon`, `agama`, `nama_orangtua`, `golongan_darah`, `id_user`) VALUES
-(1, 'Ismail Adima', 'Bogor Baru', NULL, NULL, '23', '08156706780', 'islam', 'Heru Wiajayanto', 'AB', 'cdb4a967ba33c3a9fe2bbe674aafc3e2'),
-(2, 'Ismail Adima', 'Bogor Baru', NULL, NULL, '', '08156706780', '', '', '', NULL),
-(3, 'Ismail Adima', 'Bogor Baru', NULL, NULL, '', '08156706780', '', '', '', '4');
+INSERT INTO `pasien` (`id_pasien`, `id_asuransi`, `nama_pasien`, `alamat`, `no_asuransi`, `umur`, `no_telepon`, `agama`, `nama_orangtua`, `golongan_darah`, `id_user`) VALUES
+(1, NULL, 'Ismail Adima', 'Bogor Baru', NULL, '23', '08156706780', 'islam', 'Heru Wiajayanto', 'AB', 'cdb4a967ba33c3a9fe2bbe674aafc3e2');
 
 -- --------------------------------------------------------
 
@@ -138,10 +146,8 @@ CREATE TABLE `penanganan` (
 CREATE TABLE `pendaftaran` (
   `id_pendaftaran` int(10) NOT NULL,
   `id_pasien` int(10) NOT NULL,
-  `id_dokter` int(10) NOT NULL,
-  `id_rs` int(10) NOT NULL,
-  `id_poli` int(10) NOT NULL,
   `id_pegawai` int(10) NOT NULL,
+  `id_rs_poli` int(10) NOT NULL,
   `tanggal_pendaftaran` datetime NOT NULL,
   `nomor_pendaftaran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -196,24 +202,25 @@ CREATE TABLE `rekam_medis` (
 CREATE TABLE `rs_poli` (
   `id` int(10) NOT NULL,
   `id_rs` int(10) NOT NULL,
-  `id_poli` int(10) NOT NULL
+  `id_poli` int(10) NOT NULL,
+  `id_dokter` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `rs_poli`
 --
 
-INSERT INTO `rs_poli` (`id`, `id_rs`, `id_poli`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 1, 4),
-(4, 1, 7),
-(5, 2, 1),
-(6, 2, 3),
-(7, 2, 5),
-(8, 1, 6),
-(9, 1, 8),
-(10, 2, 8);
+INSERT INTO `rs_poli` (`id`, `id_rs`, `id_poli`, `id_dokter`) VALUES
+(1, 1, 1, NULL),
+(2, 1, 2, NULL),
+(3, 1, 4, NULL),
+(4, 1, 7, NULL),
+(5, 2, 1, NULL),
+(6, 2, 3, NULL),
+(7, 2, 5, NULL),
+(8, 1, 6, NULL),
+(9, 1, 8, NULL),
+(10, 2, 8, NULL);
 
 -- --------------------------------------------------------
 
@@ -244,25 +251,27 @@ INSERT INTO `rumah_sakit` (`id_rs`, `nama_rs`, `alamat`, `akreditasi`) VALUES
 
 CREATE TABLE `users` (
   `id` int(10) NOT NULL,
-  `username` varchar(20) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `status` enum('0','1','2') NOT NULL COMMENT '0 = superadmin,1 = admin, 2 = pasien',
-  `api_key` varchar(255) NOT NULL
+  `status` enum('0','1','2') NOT NULL COMMENT '0 = superadmin,1 = admin, 2 = pasien'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `status`, `api_key`) VALUES
-(1, 'ismailadima@gmail.co', 'b3c55a02882e9050dcd4a6739d4a288c', '2', '54d0c08b686e6f6fd6ee0a0f2b32e43b'),
-(2, 'ismailadima@gmail.co', 'b3c55a02882e9050dcd4a6739d4a288c', '2', '4427cbd468b6dd4f625e7143743d1592'),
-(3, 'ismailadima@gmail.co', 'b3c55a02882e9050dcd4a6739d4a288c', '2', 'f27d755ded4b272480d99c9d5cb9133e'),
-(4, 'ismailadima@gmail.co', 'b3c55a02882e9050dcd4a6739d4a288c', '2', '39718861486ae5e6706a04767605872b');
+INSERT INTO `users` (`id`, `username`, `password`, `status`) VALUES
+(4, 'ismailadima@gmail.com', 'b3c55a02882e9050dcd4a6739d4a288c', '2');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `asuransi`
+--
+ALTER TABLE `asuransi`
+  ADD PRIMARY KEY (`id_asuransi`);
 
 --
 -- Indexes for table `daftar_obat`
@@ -341,6 +350,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `asuransi`
+--
+ALTER TABLE `asuransi`
+  MODIFY `id_asuransi` int(10) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `daftar_obat`
 --
 ALTER TABLE `daftar_obat`
@@ -359,7 +373,7 @@ ALTER TABLE `obat`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pasien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
