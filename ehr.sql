@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 14 Des 2017 pada 08.35
+-- Generation Time: 14 Des 2017 pada 14.30
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -54,19 +54,20 @@ CREATE TABLE `dokter` (
   `id_dokter` int(10) NOT NULL,
   `nama_dokter` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
-  `no_telp` varchar(20) NOT NULL
+  `no_telp` varchar(20) NOT NULL,
+  `id_poli` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `dokter`
 --
 
-INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `alamat`, `no_telp`) VALUES
-(1, 'Dr. Lathif', 'Depok', '08123456789'),
-(2, 'Dr. Ritya', 'Bogor', '08136879131'),
-(3, 'Dr. Dwi Putra', 'Depok', '08567281617'),
-(4, 'Dr. Randi', 'Jakarta', '08163816817'),
-(5, 'Dr. Maizul', 'Jakarta', '08163816811');
+INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `alamat`, `no_telp`, `id_poli`) VALUES
+(1, 'Dr. Lathif', 'Depok', '08123456789', NULL),
+(2, 'Dr. Ritya', 'Bogor', '08136879131', NULL),
+(3, 'Dr. Dwi Putra', 'Depok', '08567281617', NULL),
+(4, 'Dr. Randi', 'Jakarta', '08163816817', NULL),
+(5, 'Dr. Maizul', 'Jakarta', '08163816811', NULL);
 
 -- --------------------------------------------------------
 
@@ -161,23 +162,22 @@ CREATE TABLE `pendaftaran` (
 CREATE TABLE `poli` (
   `id_poli` int(10) NOT NULL,
   `nama_poli` varchar(50) NOT NULL,
-  `keterangan` text NOT NULL,
-  `id_dokter` int(10) DEFAULT NULL
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `poli`
 --
 
-INSERT INTO `poli` (`id_poli`, `nama_poli`, `keterangan`, `id_dokter`) VALUES
-(1, 'Poliklinik Umum', 'Melayani pengobatan umum', NULL),
-(2, 'Poliklinik Gigi', 'Melayani pengobatan gigi', NULL),
-(3, 'Poliklinik Jantung', 'Melayani pengobatan jantung', NULL),
-(4, 'Poliklinik Anak', 'Melayani pengobatan anak', NULL),
-(5, 'Poliklinik THT', 'Melayani pengobatan telinga, hidung, tenggorokan', NULL),
-(6, 'Poliklinik Kulit dan Kelamin', 'Melayani pengobatan kulit dan kelamin', NULL),
-(7, 'Poliklinik Mata', 'Melayani pengobatan mata', NULL),
-(8, 'Poliklinik Penyakit Dalam', 'Melayani pengobatan penyakit dalam', NULL);
+INSERT INTO `poli` (`id_poli`, `nama_poli`, `keterangan`) VALUES
+(1, 'Poliklinik Umum', 'Melayani pengobatan umum'),
+(2, 'Poliklinik Gigi', 'Melayani pengobatan gigi'),
+(3, 'Poliklinik Jantung', 'Melayani pengobatan jantung'),
+(4, 'Poliklinik Anak', 'Melayani pengobatan anak'),
+(5, 'Poliklinik THT', 'Melayani pengobatan telinga, hidung, tenggorokan'),
+(6, 'Poliklinik Kulit dan Kelamin', 'Melayani pengobatan kulit dan kelamin'),
+(7, 'Poliklinik Mata', 'Melayani pengobatan mata'),
+(8, 'Poliklinik Penyakit Dalam', 'Melayani pengobatan penyakit dalam');
 
 -- --------------------------------------------------------
 
@@ -285,7 +285,8 @@ ALTER TABLE `daftar_obat`
 -- Indexes for table `dokter`
 --
 ALTER TABLE `dokter`
-  ADD PRIMARY KEY (`id_dokter`);
+  ADD PRIMARY KEY (`id_dokter`),
+  ADD KEY `fk_dokter_poli` (`id_poli`);
 
 --
 -- Indexes for table `obat`
@@ -326,8 +327,7 @@ ALTER TABLE `pendaftaran`
 -- Indexes for table `poli`
 --
 ALTER TABLE `poli`
-  ADD PRIMARY KEY (`id_poli`),
-  ADD KEY `fk_poli_dokter` (`id_dokter`);
+  ADD PRIMARY KEY (`id_poli`);
 
 --
 -- Indexes for table `rekam_medis`
@@ -437,6 +437,12 @@ ALTER TABLE `daftar_obat`
   ADD CONSTRAINT `fk_dfObat_rekmed` FOREIGN KEY (`id_rekam_medis`) REFERENCES `rekam_medis` (`id_rekam_medis`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
+-- Ketidakleluasaan untuk tabel `dokter`
+--
+ALTER TABLE `dokter`
+  ADD CONSTRAINT `fk_dokter_poli` FOREIGN KEY (`id_poli`) REFERENCES `poli` (`id_poli`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
 -- Ketidakleluasaan untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
@@ -455,12 +461,6 @@ ALTER TABLE `pendaftaran`
   ADD CONSTRAINT `fk_daftar_pasien` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_daftar_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_daftar_rsPoli` FOREIGN KEY (`id_rs_poli`) REFERENCES `rs_poli` (`id_rs_poli`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `poli`
---
-ALTER TABLE `poli`
-  ADD CONSTRAINT `fk_poli_dokter` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id_dokter`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `rekam_medis`
