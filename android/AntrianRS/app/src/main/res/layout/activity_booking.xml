@@ -286,12 +286,13 @@
                         android:id="@+id/thanks"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="TERIMA KASIH!"
+                        android:text="@string/unduh_form_obat"
                         android:textColor="@color/textred"
                         android:textSize="26sp"
                         android:layout_marginLeft="1dp"
                         android:gravity="center"
                         android:layout_gravity="center"
+                        android:clickable="true"
                         />
 
                 </LinearLayout>

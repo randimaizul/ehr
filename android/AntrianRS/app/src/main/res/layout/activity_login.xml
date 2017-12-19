@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="#ffffff">
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:orientation="vertical"
@@ -21,10 +21,15 @@
         </android.support.design.widget.CoordinatorLayout>
 
         <!-- Kode Pasien Label -->
-        <ImageView android:id="@+id/logoapps"
-            android:src="@drawable/hospital"
-            android:layout_width="match_parent"
-            android:layout_height="244dp" />
+        <ImageView
+            android:id="@+id/logoapps"
+            android:layout_width="154dp"
+            android:layout_height="78dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_ehr2"
+            android:layout_marginBottom="40sp"
+            android:contentDescription="@string/app_name"
+            />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -35,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Username"/>
+                android:hint="@string/strUsername"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -58,15 +63,15 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/btnColorBlack"
             android:textColor="#ffffff"
-            android:text="Masuk"/>
+            android:text="@string/strMasuk"/>
 
         <TextView android:id="@+id/lnkRegisterHere"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="Daftar Baru"
+            android:text="@string/strDaftarBaru"
             android:gravity="center"
             android:textSize="16sp"/>
 

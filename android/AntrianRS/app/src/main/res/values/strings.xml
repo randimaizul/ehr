@@ -2,8 +2,8 @@
     <string name="app_name">AntrianRS</string>
     <string name="title_activity_register">RegisterActivity</string>
 
-    <string name="DaftarBaru">Daftar Baru</string>
-    <string name="Masuk">Masuk</string>
+    <string name="strDaftarBaru">Daftar Baru</string>
+    <string name="strMasuk">Masuk</string>
 
     <string name="Nama">Nama</string>
     <string name="TanggalLahir">Tanggal Lahir</string>
@@ -44,6 +44,22 @@
     <string name="pilih_poli">pilih poli</string>
     <string name="rawat_inap">Rawat Inap</string>
     <string name="ambil_obat">Ambil Obat</string>
+    <string name="masuk">strMasuk</string>
+    <string name="punya_akun_silahkan_login">Punya Akun? Silahkan Login</string>
+    <string name="buat_akun">Buat Akun</string>
+    <string name="strPassword">Password</string>
+    <string name="strUsername">Username</string>
+    <string name="strBerobat">Mulai Berobat</string>
+    <string name="strProfil">Profil Anda</string>
+    <string name="strRiwayat">Riwayat Pengobatan</string>
+    <string name="strHandphone">No. Handphone (08xxxxx)</string>
+    <string name="strAlamat">Alamat</string>
+    <string name="strOrtu">Nama Orang Tua Kandung</string>
+    <string name="strSimpan">Simpan</string>
+    <string name="strKodeBPJS">Kode BPJS</string>
+    <string name="unduh_form_obat">UNDUH FORM OBAT</string>
+    <string name="strDaftarRumahSakit">Registrasi Pengobatan</string>
+    <string name="strUseBPJS">Saya Ingin Menggunakan BPJS</string>
 
     <string-array name="PoliGigi">
         <item>Dokter Gigi 1</item>

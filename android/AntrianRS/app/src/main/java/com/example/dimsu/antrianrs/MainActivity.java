@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         //Bundle bundle = getIntent().getExtras();
         //idPasien = bundle.getInt("idPasien");
 
@@ -46,15 +45,14 @@ public class MainActivity extends AppCompatActivity {
         carouselView.setPageCount(carouselImages.length);
         carouselView.setImageListener(imageListener);
 
-        daftarPoli = (Button) findViewById(R.id.btn_daftarpoli);
-        rawatInap = (Button) findViewById(R.id.btn_rawatinap);
-        ambilObat = (Button) findViewById(R.id.btn_ambilobat);
+        daftarPoli = (Button) findViewById(R.id.btn_profil);
+        rawatInap = (Button) findViewById(R.id.btn_registrasi);
+        ambilObat = (Button) findViewById(R.id.btn_riwayat);
 
 
         funcDaftarPoli();
         funcRawatInap();
         funcAmbilObat();
-
     }
 
 
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         daftarPoli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,PoliActivity.class);
+                Intent i = new Intent(MainActivity.this,ProfileActivity.class);
                 i.putExtra("id_pasien",id_pasien);
                 startActivity(i);
             }
@@ -92,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
         rawatInap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Fitur Rawat Inap", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this,BerobatActivity.class);
+                i.putExtra("id_pasien",id_pasien);
+                startActivity(i);
             }
         });
     }
@@ -100,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
         ambilObat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Fitur Ambil Obat", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this,RiwayatActivity.class);
+                i.putExtra("id_pasien",id_pasien);
+                startActivity(i);
             }
         });
     }
