@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">AntrianRS</string>
+    <string name="title_activity_register">RegisterActivity</string>
+
+    <string name="strDaftarBaru">Daftar Baru</string>
+    <string name="strMasuk">Masuk</string>
+
+    <string name="Nama">Nama</string>
+    <string name="TanggalLahir">Tanggal Lahir</string>
+    <string name="TempatLahir">Tempat Lahir</string>
+    <string name="BeratBadan">Berat Badan (Kg)</string>
+    <string name="TinggiBadan">Tinggi Badan (cm)</string>
+    <string name="NoHP">No. Handphone (08xx)</string>
+    <string name="GolDarah">Golongan Darah</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="RePassword">Re-Type Password</string>
+    <string name="BuatAkun">Buat Akun</string>
+    <string name="PunyaAkun">Punya Akun? Silahkan Login</string>
+
+    <string name="Tanggal">Tanggal</string>
+    <string name="IdPasien">Id Pasien</string>
+    <string name="IdPoli">Id Poli</string>
+    <string name="NamaPoli">Nama Poli</string>
+    <string name="NamaDokter">Nama Dokter</string>
+    <string name="NoBPJS">No. BPJS (isi 0 jika tidak ada)</string>
+    <string name="Booking">BOOKING</string>
+    <string name="booking_summary">BOOKING SUMMARY</string>
+    <string name="your_booking_no">No. Antrian Anda :</string>
+    <string name="poli_logo">poli_logo</string>
+    <string name="daftar_poli">daftar poli</string>
+    <string name="nama_pasien">Nama Pasien</string>
+    <string name="nama_poli">Nama Poli</string>
+    <string name="nama_dokter">Nama Dokter</string>
+    <string name="hospital_queue">Hospital Queue</string>
+    <string name="hosque">HosQue</string>
+    <string name="nomor_bpjs">Nomor BPJS (isi 0 jika tidak ada)</string>
+    <string name="informasi_poli">Informasi Poli</string>
+    <string name="infopoli">INI ADALAH INFORMASI DARI POLI</string>
+    <string name="done">DONE</string>
+    <string name="logo_poli">Logo Poli</string>
+    <string name="ini_adalah_informasi_mengenai_poli">INI ADALAH INFORMASI MENGENAI POLI</string>
+    <string name="ok">OK</string>
+    <string name="pilih_poli">pilih poli</string>
+    <string name="rawat_inap">Rawat Inap</string>
+    <string name="ambil_obat">Ambil Obat</string>
+    <string name="masuk">strMasuk</string>
+    <string name="punya_akun_silahkan_login">Punya Akun? Silahkan Login</string>
+    <string name="buat_akun">Buat Akun</string>
+    <string name="strPassword">Password</string>
+    <string name="strUsername">Username</string>
+    <string name="strBerobat">Mulai Berobat</string>
+    <string name="strProfil">Profil Anda</string>
+    <string name="strRiwayat">Riwayat Pengobatan</string>
+    <string name="strHandphone">No. Handphone (08xxxxx)</string>
+    <string name="strAlamat">Alamat</string>
+    <string name="strOrtu">Nama Orang Tua Kandung</string>
+    <string name="strSimpan">Simpan</string>
+    <string name="strKodeBPJS">Kode BPJS</string>
+    <string name="unduh_form_obat">UNDUH FORM OBAT</string>
+    <string name="strDaftarRumahSakit">Registrasi Pengobatan</string>
+    <string name="strUseBPJS">Saya Ingin Menggunakan BPJS</string>
+
+    <string-array name="PoliGigi">
+        <item>Dokter Gigi 1</item>
+        <item>Dokter Gigi 2</item>
+        <item>Dokter Gigi 3</item>
+        <item>Dokter Gigi 4</item>
+    </string-array>
+    <string-array name="PoliMata">
+        <item>Dokter Mata 1</item>
+        <item>Dokter Mata 2</item>
+        <item>Dokter Mata 3</item>
+        <item>Dokter Mata 4</item>
+    </string-array>
+    <string-array name="PoliTHT">
+        <item>Dokter THT 1</item>
+        <item>Dokter THT 2</item>
+        <item>Dokter THT 3</item>
+        <item>Dokter THT 4</item>
+    </string-array>
+    <string-array name="PoliUmum">
+        <item>Dokter Umum 1</item>
+        <item>Dokter Umum 2</item>
+        <item>Dokter Umum 3</item>
+        <item>Dokter Umum 4</item>
+    </string-array>
+    <string-array name="PoliJantung">
+        <item>Dokter Jantung 1</item>
+        <item>Dokter Jantung 2</item>
+        <item>Dokter Jantung 3</item>
+        <item>Dokter Jantung 4</item>
+    </string-array>
+    <string-array name="PoliKulit">
+        <item>Dokter Kulit 1</item>
+        <item>Dokter Kulit 2</item>
+        <item>Dokter Kulit 3</item>
+        <item>Dokter Kulit 4</item>
+    </string-array>
+    <string-array name="PoliParu">
+        <item>Dokter Paru 1</item>
+        <item>Dokter Paru 2</item>
+        <item>Dokter Paru 3</item>
+        <item>Dokter Paru 4</item>
+    </string-array>
+    <string-array name="PoliTulang">
+        <item>Dokter Tulang 1</item>
+        <item>Dokter Tulang 2</item>
+        <item>Dokter Tulang 3</item>
+        <item>Dokter Tulang 4</item>
+    </string-array>
+    <string-array name="PoliSaraf">
+        <item>Dokter Saraf 1</item>
+        <item>Dokter Saraf 2</item>
+        <item>Dokter Saraf 3</item>
+        <item>Dokter Saraf 4s</item>
+    </string-array>
+    <string-array name="PoliGinjal">
+        <item>Dokter Ginjal 1</item>
+        <item>Dokter Ginjal 2</item>
+        <item>Dokter Ginjal 3</item>
+        <item>Dokter Ginjal 4</item>
+    </string-array>
+
+
+</resources>
