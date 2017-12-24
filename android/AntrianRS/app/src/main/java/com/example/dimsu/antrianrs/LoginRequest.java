@@ -16,8 +16,8 @@ public class LoginRequest extends StringRequest {
     //private static final String LOGIN_REQUEST_URL = "http://192.168.1.39:8080/rs/log.php";
     //private static final String LOGIN_REQUEST_URL = "http://www.antrianrs.esy.es/logg.php";
     //private static final String LOGIN_REQUEST_URL = "http://api.taungapain.com/api/users/login";
-    private static final String LOGIN_REQUEST_URL = "http://172.20.35.49:8080/ehr/log.php";
-    //private static final String LOGIN_REQUEST_URL = "http://latif.taungapain.com/log.php";
+    //private static final String LOGIN_REQUEST_URL = "http://192.168.43.31:8080/ehr/log.php";
+    private static final String LOGIN_REQUEST_URL = "http://latif.taungapain.com/login.php";
     private Map<String, String> params;
 
     public LoginRequest(String username, String password, Response.Listener<String> listener){

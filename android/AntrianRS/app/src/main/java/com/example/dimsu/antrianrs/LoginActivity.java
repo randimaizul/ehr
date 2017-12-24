@@ -18,6 +18,7 @@ import butterknife.InjectView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.dimsu.antrianrs.Helper.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
     private AlertDialog.Builder builder;
+    private SessionManager sessionManager;
 
 
     @Override
@@ -36,6 +38,16 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog=new ProgressDialog(LoginActivity.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading");
+
+        /* Session */
+        /*sessionManager = new SessionManager(LoginActivity.this);
+        if(sessionManager.isLoggedIn()){
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            //intent.putExtra("id_user", id_user);
+            //intent.putExtra("id_pasien", id_pasien);
+            startActivity(intent);
+            finish();
+        }*/
 
         builder = new AlertDialog.Builder(LoginActivity.this);
         builder.setMessage("")
@@ -80,13 +92,18 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (!error) {
 
-                                    String id = (String) jsonResponse.getJSONObject("user").getString("id");
+                                    String id_user = (String) jsonResponse.getJSONObject("user").getString("id_user");
+                                    String id_pasien = (String) jsonResponse.getJSONObject("id_pasien").getString("id_pasien");
                                     //String password = (String) jsonResponse.getJSONObject("password").getString("password");
 
+                                    //sessionManager.createLoginSession(id_user,id_pasien);
+
                                     Intent inmain = new Intent(LoginActivity.this, MainActivity.class);
-                                    inmain.putExtra("id", id);
+                                    inmain.putExtra("id_user", id_user);
+                                    inmain.putExtra("id_pasien", id_pasien);
                                     //intent.putExtra("password", password);
                                     Toast.makeText(LoginActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, id_user, Toast.LENGTH_SHORT).show();
 
                                     LoginActivity.this.startActivity(inmain);
 

@@ -24,6 +24,8 @@
     <string name="NamaPoli">Nama Poli</string>
     <string name="NamaDokter">Nama Dokter</string>
     <string name="NoBPJS">No. BPJS (isi 0 jika tidak ada)</string>
+    <string name="NoAsuransi">No. Asuransi</string>
+    <string name="Asuransi">Jenis Asuransi</string>
     <string name="Booking">BOOKING</string>
     <string name="booking_summary">BOOKING SUMMARY</string>
     <string name="your_booking_no">No. Antrian Anda :</string>
@@ -42,6 +44,7 @@
     <string name="ini_adalah_informasi_mengenai_poli">INI ADALAH INFORMASI MENGENAI POLI</string>
     <string name="ok">OK</string>
     <string name="pilih_poli">pilih poli</string>
+    <string name="inputProfil">PROFIL</string>
     <string name="rawat_inap">Rawat Inap</string>
     <string name="ambil_obat">Ambil Obat</string>
     <string name="masuk">strMasuk</string>
@@ -60,6 +63,7 @@
     <string name="unduh_form_obat">UNDUH FORM OBAT</string>
     <string name="strDaftarRumahSakit">Registrasi Pengobatan</string>
     <string name="strUseBPJS">Saya Ingin Menggunakan BPJS</string>
+    <string name="agama">Agama</string>
 
     <string-array name="PoliGigi">
         <item>Dokter Gigi 1</item>

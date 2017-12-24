@@ -14,7 +14,8 @@ import java.util.List;
  * Created by Dimsu on 3/11/2017.
  */
 
-class PoliAdapter extends RecyclerView.Adapter<PoliAdapter.MyViewHolder>{
+//class PoliAdapter extends RecyclerView.Adapter<PoliAdapter.MyViewHolder>{
+    class PoliAdapter{
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -34,36 +35,36 @@ class PoliAdapter extends RecyclerView.Adapter<PoliAdapter.MyViewHolder>{
         }
     }
 
-    private List<Poli> poliList;
+    //private List<Poli> poliList;
 
-    PoliAdapter(List<Poli> poliList) {
-        this.poliList = poliList;
-    }
+    //PoliAdapter(List<Poli> poliList) {
+        //this.poliList = poliList;
+    //}
 
-    @Override
+    //@Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.poli_card, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
-    @Override
+    //@Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
-        holder.namaPoli.setText(poliList.get(position).namePoli);
-        holder.jmlDokter.setText(poliList.get(position).jumlahDokter);
-        holder.poliPhoto.setImageResource(poliList.get(position).photoId);
+        //holder.namaPoli.setText(poliList.get(position).namePoli);
+        //holder.jmlDokter.setText(poliList.get(position).jumlahDokter);
+        //holder.poliPhoto.setImageResource(poliList.get(position).photoId);
 
     }
 
-    @Override
-    public int getItemCount() {
-        return poliList.size();
-    }
+    //@Override
+    //public int getItemCount() {
+     //   return poliList.size();
+   // }
 
-    @Override
+    //@Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
+        //super.onAttachedToRecyclerView(recyclerView);
     }
 
 

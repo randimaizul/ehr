@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button daftarPoli,rawatInap,ambilObat;
 
     private String id_pasien;
+    private String id_user;
 
     CarouselView carouselView;
 
@@ -37,8 +38,15 @@ public class MainActivity extends AppCompatActivity {
         //Intent intent = getIntent();
         //String kodePasien = intent.getStringExtra("kode_pasien");
 
-        Bundle bundle = getIntent().getExtras();
-        id_pasien = bundle.getString("id_pasien");
+        //try{
+            Bundle bundle = getIntent().getExtras();
+            id_pasien = bundle.getString("id_pasien");
+            id_user = bundle.getString("id_user");
+        //}
+        //catch (Exception e){
+
+        //}
+
 
 
         carouselView = (CarouselView) findViewById(R.id.carouselView);
@@ -50,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         ambilObat = (Button) findViewById(R.id.btn_riwayat);
 
 
-        funcDaftarPoli();
-        funcRawatInap();
-        funcAmbilObat();
+        funcProfile();
+        funcBerobat();
+        funcRiwayat();
     }
 
 
@@ -76,32 +84,37 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    public void funcDaftarPoli(){
+    public void funcProfile(){
         daftarPoli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,ProfileActivity.class);
                 i.putExtra("id_pasien",id_pasien);
+                i.putExtra("id_user",id_user);
+                Toast.makeText(MainActivity.this, id_user, Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
         });
     }
-    public void funcRawatInap(){
+    public void funcBerobat(){
         rawatInap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,BerobatActivity.class);
                 i.putExtra("id_pasien",id_pasien);
+                i.putExtra("id_user",id_user);
+                Toast.makeText(MainActivity.this, id_pasien, Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
         });
     }
-    public void funcAmbilObat(){
+    public void funcRiwayat(){
         ambilObat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,RiwayatActivity.class);
                 i.putExtra("id_pasien",id_pasien);
+                i.putExtra("id_user",id_user);
                 startActivity(i);
             }
         });

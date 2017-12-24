@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.dimsu.antrianrs.Class.Poli;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -230,19 +231,19 @@ public class PoliActivity extends AppCompatActivity {
 
     private void initializeData(){
         poliList = new ArrayList<>();
-        poliList.add(new Poli("Poli Umum","Tempat berobat untuk penyakit yang umum",R.drawable.umum));
-        poliList.add(new Poli("Poli Gigi","Tempat berobat untuk penyakit pada gigi",R.drawable.gigi));
-        poliList.add(new Poli("Poli Spesialis Jantung","Tempat berobat untuk penyakit pada jantung",R.drawable.jantung));
-        poliList.add(new Poli("Poli Spesialis Kulit dan Kelamin","Tempat berobat untuk penyakit pada kulit atau Kelamin",R.drawable.kulit));
-        poliList.add(new Poli("Poli Spesialis Mata","Tempat berobat untuk penyakit pada mata",R.drawable.mata));
-        poliList.add(new Poli("Poli THT","Tempat berobat untuk penyakit pada telinga, hidung atau tenggorokan",R.drawable.tht));
-        poliList.add(new Poli("Poli Spesialis Tulang","Tempat berobat untuk penyakit pada tulang",R.drawable.tulang));
-        poliList.add(new Poli("Poli Spesialis Saraf","Tempat berobat untuk penyakit pada saraf",R.drawable.saraf));
+        //poliList.add(new Poli("Poli Umum","Tempat berobat untuk penyakit yang umum",R.drawable.umum));
+        //poliList.add(new Poli("Poli Gigi","Tempat berobat untuk penyakit pada gigi",R.drawable.gigi));
+        //poliList.add(new Poli("Poli Spesialis Jantung","Tempat berobat untuk penyakit pada jantung",R.drawable.jantung));
+        //poliList.add(new Poli("Poli Spesialis Kulit dan Kelamin","Tempat berobat untuk penyakit pada kulit atau Kelamin",R.drawable.kulit));
+        //poliList.add(new Poli("Poli Spesialis Mata","Tempat berobat untuk penyakit pada mata",R.drawable.mata));
+        //poliList.add(new Poli("Poli THT","Tempat berobat untuk penyakit pada telinga, hidung atau tenggorokan",R.drawable.tht));
+        //poliList.add(new Poli("Poli Spesialis Tulang","Tempat berobat untuk penyakit pada tulang",R.drawable.tulang));
+        //poliList.add(new Poli("Poli Spesialis Saraf","Tempat berobat untuk penyakit pada saraf",R.drawable.saraf));
     }
 
     private void initializeAdapter(){
-        PoliAdapter adapter = new PoliAdapter(poliList);
-        recyclerView.setAdapter(adapter);
+        //PoliAdapter adapter = new PoliAdapter(poliList);
+        //recyclerView.setAdapter(adapter);
     }
 
 

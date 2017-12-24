@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="30dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
+
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+
+
+    <!--  Name Label -->
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/strProfil"
+        android:gravity="center"
+        android:textSize="20sp"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="2dp">
+        <EditText android:id="@+id/nama_pasien_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/Nama" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--  Alamat Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+        <EditText android:id="@+id/alamat_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textLongMessage"
+            android:hint="@string/strAlamat" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--  Nama Orang tua Kandung Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+        <EditText android:id="@+id/nama_orangtua_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/strOrtu" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--  Tanggal Lahir Label -->
+    <DatePicker
+        android:id="@+id/tanggal_lahir_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"/>
+
+    <!--  Agama Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+        <EditText android:id="@+id/agama_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/agama" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--  Golongan Darah Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+        <EditText android:id="@+id/goldar_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/GolDarah" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--  Nomor Handphone Label -->
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="2dp"-->
+        <!--android:layout_marginBottom="2dp">-->
+        <!--<EditText android:id="@+id/txtPhone"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="number"-->
+            <!--android:ems="3"-->
+            <!--android:hint="@string/strHandphone" />-->
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--  Asuransi -->
+    <Spinner
+        android:id="@+id/jenis_asuransi_sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:hint="@string/Asuransi"/>
+
+    <!--  No. Asuransi -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp">
+        <EditText android:id="@+id/no_asuransi_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/NoAsuransi" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!-- Confirm Button -->
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnConfirm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/btnColorBlack"
+        android:textColor="#ffffff"
+        android:padding="12dp"
+        android:text="@string/strSimpan"/>
+
+</LinearLayout>
+</ScrollView>

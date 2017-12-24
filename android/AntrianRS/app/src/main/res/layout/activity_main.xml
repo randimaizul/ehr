@@ -60,7 +60,7 @@
             android:layout_weight="0.35"
             android:background="@color/btnColor2"
             android:padding="12dp"
-            android:text="@string/pilih_poli"
+            android:text="@string/inputProfil"
             android:textSize="15dp"
             android:textAlignment="center"
             android:textColor="#ffffff" />
