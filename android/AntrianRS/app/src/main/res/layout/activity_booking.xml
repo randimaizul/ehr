@@ -147,7 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     >
 
@@ -174,31 +174,65 @@
                             android:id="@+id/namapasien"
                             android:text="@string/nama_pasien"
                             android:textColor="@color/text"
-                            android:textSize="17sp"
+                            android:textSize="15sp"
 
                             />
 
                         <TextView
-                            android:layout_marginTop="13dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/namaRS"
+                            android:text="@string/nama_RS"
+                            android:textColor="@color/text"
+                            android:textSize="15sp"
+
+                            />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/namapoli"
                             android:text="@string/nama_poli"
                             android:textColor="@color/text"
-                            android:textSize="17sp"
+                            android:textSize="15sp"
                             />
 
                         <TextView
-                            android:layout_marginTop="13dp"
+                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/namadokter"
                             android:text="@string/nama_dokter"
                             android:textColor="@color/text"
-                            android:textSize="17sp"
+                            android:textSize="15sp"
                             />
 
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/jnsasuransi"
+                            android:text="Jenis Asuransi"
+                            android:textColor="@color/text"
+                            android:textSize="12sp"
+                            />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/noasuransi"
+                            android:text="@string/NoAsuransi"
+                            android:textColor="@color/text"
+                            android:textSize="12sp"
+                            />
+
+
                     </LinearLayout>
+
+
 
 
                     <LinearLayout
@@ -207,6 +241,7 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="10dp"
                         >
+
 
 
                     </LinearLayout>
@@ -219,7 +254,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp" />
 
@@ -240,7 +274,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginBottom="5dp"
+
                         >
 
                     </LinearLayout>
@@ -266,7 +300,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp" />
 
@@ -278,7 +311,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="16dp"
                     >
 
                     <TextView
@@ -286,7 +318,7 @@
                         android:id="@+id/thanks"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/unduh_form_obat"
+                        android:text="@string/thanks"
                         android:textColor="@color/textred"
                         android:textSize="26sp"
                         android:layout_marginLeft="1dp"

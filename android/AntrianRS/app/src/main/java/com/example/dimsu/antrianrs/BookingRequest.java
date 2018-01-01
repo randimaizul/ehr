@@ -12,14 +12,13 @@ import java.util.Map;
 public class BookingRequest extends StringRequest {
 
     //private static final String LOGIN_REQUEST_URL = "http://192.168.1.39:8080/rs/booking.php";
-    private static final String LOGIN_REQUEST_URL = "http://www.antrianrs.esy.es/bookingg.php";
+    private static final String TAMPILDAFTAR_REQUEST_URL = "http://latif.taungapain.com/tampil_pendaftaran2.php";
     private Map<String, String> params;
 
-    public BookingRequest(String id_pasien, String id_poli, Response.Listener<String> listener){
-        super(Method.POST,LOGIN_REQUEST_URL, listener, null);
+    public BookingRequest(String id_pendaftaran, Response.Listener<String> listener){
+        super(Method.POST,TAMPILDAFTAR_REQUEST_URL, listener, null);
         params = new HashMap<>();
-        params.put("id_pasien", id_pasien);
-        params.put("id_poli", id_poli);
+        params.put("id_pendaftaran", id_pendaftaran);
     }
 
     @Override

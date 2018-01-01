@@ -60,10 +60,11 @@
             android:layout_weight="0.35"
             android:background="@color/btnColor2"
             android:padding="12dp"
+            android:drawableLeft="@drawable/profile_red"
             android:text="@string/inputProfil"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textAlignment="center"
-            android:textColor="#ffffff" />
+            android:textColor="#c0392b" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_registrasi"
@@ -72,11 +73,13 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="0.35"
-            android:background="@color/btnColor3"
+            android:background="@color/btnColor2"
             android:padding="12dp"
-            android:textSize="15dp"
+            android:drawableLeft="@drawable/berobat_red"
+            android:textSize="20dp"
+            android:textAlignment="center"
             android:text="@string/strBerobat"
-            android:textColor="#ffffff" />
+            android:textColor="#c0392b" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_riwayat"
@@ -85,12 +88,13 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="0.35"
-            android:background="@color/btnColor1"
+            android:background="@color/btnColor2"
             android:padding="12dp"
-            android:textSize="15dp"
+            android:drawableLeft="@drawable/riwayat_red"
+            android:textSize="20dp"
             android:text="@string/strRiwayat"
             android:textAlignment="center"
-            android:textColor="#ffffff" />
+            android:textColor="#c0392b" />
     </LinearLayout>
 
 

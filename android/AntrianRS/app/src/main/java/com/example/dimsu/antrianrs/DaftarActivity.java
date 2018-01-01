@@ -204,9 +204,9 @@ public class DaftarActivity extends AppCompatActivity implements AdapterView.OnI
                     }
                 };
 
-                BookingRequest bookingRequest = new BookingRequest(id_pasien, id_poli, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(DaftarActivity.this);
-                queue.add(bookingRequest);
+                //BookingRequest bookingRequest = new BookingRequest(id_pasien, id_poli, responseListener);
+                //RequestQueue queue = Volley.newRequestQueue(DaftarActivity.this);
+                //queue.add(bookingRequest);
             }
         });
     }

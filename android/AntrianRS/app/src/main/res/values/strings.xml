@@ -18,6 +18,7 @@
     <string name="BuatAkun">Buat Akun</string>
     <string name="PunyaAkun">Punya Akun? Silahkan Login</string>
 
+    <string name="Daftar">Daftar</string>
     <string name="Tanggal">Tanggal</string>
     <string name="IdPasien">Id Pasien</string>
     <string name="IdPoli">Id Poli</string>
@@ -28,12 +29,14 @@
     <string name="Asuransi">Jenis Asuransi</string>
     <string name="Booking">BOOKING</string>
     <string name="booking_summary">BOOKING SUMMARY</string>
+    <string name="Daftar_summary">SUMMARY</string>
     <string name="your_booking_no">No. Antrian Anda :</string>
     <string name="poli_logo">poli_logo</string>
     <string name="daftar_poli">daftar poli</string>
     <string name="nama_pasien">Nama Pasien</string>
     <string name="nama_poli">Nama Poli</string>
     <string name="nama_dokter">Nama Dokter</string>
+    <string name="nama_RS">Nama Rumah Sakit</string>
     <string name="hospital_queue">Hospital Queue</string>
     <string name="hosque">HosQue</string>
     <string name="nomor_bpjs">Nomor BPJS (isi 0 jika tidak ada)</string>
@@ -64,6 +67,7 @@
     <string name="strDaftarRumahSakit">Registrasi Pengobatan</string>
     <string name="strUseBPJS">Saya Ingin Menggunakan BPJS</string>
     <string name="agama">Agama</string>
+    <string name="thanks">Terima Kasih</string>
 
     <string-array name="PoliGigi">
         <item>Dokter Gigi 1</item>
