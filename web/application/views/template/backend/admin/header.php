@@ -38,6 +38,21 @@
 	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/pages/table_elements.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/pages/layout_fixed_custom.js"></script>
 	<!-- /theme JS files -->
+	<!-- text editor  -->
+	<!-- <script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/editors/wysihtml5/wysihtml5.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/editors/wysihtml5/toolbar.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/forms/styling/uniform.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/editors/wysihtml5/parsers.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/editors/wysihtml5/locales/bootstrap-wysihtml5.ua-UA.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/pages/editor_wysihtml5.js"></script> -->
+	<!-- /text editor -->
+	<!-- Chart -->
+	<!-- <script type="text/javascript" src="http://www.google.com/jsapi"></script> -->
+	<!-- <script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/charts/echarts/pies_donuts.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/visualization/echarts/echarts.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/visualization/echarts/theme/limitless.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/visualization/echarts/chart/funnel.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/plugins/visualization/echarts/chart/pie.js"></script> -->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/charts/google/pies/pie_3d.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>data/assets-limitless/js/charts/google/pies/pie_diff_radius.js"></script>

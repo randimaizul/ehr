@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Pegawai extends MY_Controller {
+class Dokter extends MY_Controller {
 
 	function __construct()
 	{
@@ -8,16 +8,17 @@ class Pegawai extends MY_Controller {
 		$this->load->model('pendaftaran_m','pm');
 		$this->load->model('dokter_m','dm');
 		$this->load->model('rs_poli_m','rpm'); 
-		if($this->session->userdata('logged_in')['status']!="1"){redirect("login/logout");}
+		if($this->session->userdata('logged_in')['status']!="2"){redirect("login/logout");}
 	}
 
 	function index(){
 		// $session = $this->admin_m->get_login_admin2('LabSatu | Labid', 'dashboard', 'dashboard');
-		redirect("pegawai/dashboard");
+		redirect("dokter/dashboard");
+		// echo "halo dokter";
 	}
 
 	public function dashboard(){
-		$this->session->set_userdata('url', 'pegawai/dashboard');
+		$this->session->set_userdata('url', 'dokter/dashboard');
 		$session = $this->session->userdata();
 		$filename['page']="index";
 		$filename['js']="js";

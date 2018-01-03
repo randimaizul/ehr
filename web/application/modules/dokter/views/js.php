@@ -9,8 +9,6 @@
             data : {'id_poli': id_poli},
             success : function(data){
                 var row = "";
-                var disabled = "";
-                var keterangan = "";
                 if(data.status==true){
                     if(data.obj == '0'){
                         row += '<select name="id_dokter" id="id_dokter" class="form-control" required>'
@@ -20,9 +18,7 @@
                         row += '<select name="id_dokter" id="id_dokter" class="form-control" required>'
                         row += '<option value="0" disabled selected>-- Pilih dokter --</option> ';
                         $.each(data.obj, function(k, v) {
-                            if(v.status == '0'){disabled = 'disabled'; keterangan = " (closed)"}
-                            else {disabled = ""; keterangan = ""}
-                            row += '<option '+disabled+' value="'+v.id_dokter+'">'+v.nama_dokter+' '+keterangan+'</option> ';
+                            row += '<option value="'+v.id_dokter+'">'+v.nama_dokter+'</option> ';
                             document.getElementById('id_rs_poli').value=v.id_rs_poli;
                         });
                         row += "</select>"

@@ -7,7 +7,7 @@
 		<div class="breadcrumb-line">
 			<ul class="breadcrumb">
 				<?php if($page=="dashboard") { ?>
-				<li class="active"><i class="icon-home2 position-left"></i> Home</li>
+				<li class="active"><i class="icon-home2 position-left"></i> Home </li>
 				<?php } else { ?>
 				<li><a href="<?php echo base_url()?>labid/admin"><i class="icon-home2 position-left"></i> Home</a></li>
 				<li><a href="<?php echo base_url()?>labid/admin/product/service">Product</a></li>
@@ -55,7 +55,7 @@
 		<!-- Basic datatable -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Rumah sakit master</h5>
+							<h5 class="panel-title">Dokter master </h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
 			                		<li><a data-action="collapse"></a></li>
@@ -67,25 +67,27 @@
 						<table class="table datatable-basic">
 							<thead>
 								<tr>
-									<th>Nama Rumah Sakit</th>
+									<th>Nama Dokter</th>
 									<th>Alamat</th>
-									<th>Status</th>
+									<th>Telepon</th>
+									<th>Nama Poli</th>
 									<th class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach($rs as $key => $r) {?>
+								<?php foreach($d  as $key => $d) {?>
 								<tr>
-									<td><?php echo $r['nama_rs']?></td>
-									<td><?php echo $r['alamat']?></td>
-									<td><span class="label label-success"><?php echo $r['akreditasi']?></span></td>
+									<td><?php echo $d['nama_dokter']?></td>
+									<td><?php echo $d['alamat']?></td>
+									<td><?php echo $d['no_telp']?></td>
+									<td><?php echo $d['nama_poli']?></td>
 									<td class="text-center">
 										<ul class="icons-list"> 
 											<li class="text-primary-600">
-												<a href="javascript:void(0)" class="editRS" data-id="<?php echo $r['id_rs']?>"> <i class="icon-pencil7"></i></a>
+												<a href="javascript:void(0)" class="editRS" data-id="<?php echo $d['id_dokter']?>"> <i class="icon-pencil7"></i></a>
 											</li> 
 											<li class="text-danger-600">
-												<a href="javascript:void(0)" class="deleteRS" data-id="<?php echo $r['id_rs']?>"> <i class="icon-trash"></i></a>
+												<a href="javascript:void(0)" class="deleteRS" data-id="<?php echo $d['id_dokter']?>"> <i class="icon-trash"></i></a>
 											</li> 
 										</ul>
 									</td>

@@ -55,7 +55,7 @@
 		<!-- Basic datatable -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Rumah sakit master</h5>
+							<h5 class="panel-title">Poli master</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
 			                		<li><a data-action="collapse"></a></li>
@@ -67,25 +67,23 @@
 						<table class="table datatable-basic">
 							<thead>
 								<tr>
-									<th>Nama Rumah Sakit</th>
-									<th>Alamat</th>
-									<th>Status</th>
+									<th>Nama Poli</th>
+									<th>Keterangan</th>
 									<th class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach($rs as $key => $r) {?>
+								<?php foreach($p as $key => $p) {?>
 								<tr>
-									<td><?php echo $r['nama_rs']?></td>
-									<td><?php echo $r['alamat']?></td>
-									<td><span class="label label-success"><?php echo $r['akreditasi']?></span></td>
+									<td><?php echo $p['nama_poli']?></td>
+									<td><?php echo $p['keterangan']?></td>
 									<td class="text-center">
 										<ul class="icons-list"> 
 											<li class="text-primary-600">
-												<a href="javascript:void(0)" class="editRS" data-id="<?php echo $r['id_rs']?>"> <i class="icon-pencil7"></i></a>
+												<a href="javascript:void(0)" class="editRS" data-id="<?php echo $p['id_poli']?>"> <i class="icon-pencil7"></i></a>
 											</li> 
 											<li class="text-danger-600">
-												<a href="javascript:void(0)" class="deleteRS" data-id="<?php echo $r['id_rs']?>"> <i class="icon-trash"></i></a>
+												<a href="javascript:void(0)" class="deleteRS" data-id="<?php echo $p['id_poli']?>"> <i class="icon-trash"></i></a>
 											</li> 
 										</ul>
 									</td>

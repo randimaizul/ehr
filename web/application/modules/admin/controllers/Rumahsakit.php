@@ -10,7 +10,7 @@ class Rumahsakit extends MY_Controller {
 
 	public function index(){
 		// $session = $this->admin_m->get_login_admin2('LabSatu | Labid', 'dashboard', 'dashboard');
-		$session = $this->session->userdata();
+		$session = "";
 		$filename['page']="rumahsakit";
 		$filename['js']="js";
 		$general['page'] = "Rumah Sakit";
