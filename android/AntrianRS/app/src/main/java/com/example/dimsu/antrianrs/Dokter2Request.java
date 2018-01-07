@@ -13,11 +13,11 @@ public class Dokter2Request extends StringRequest{
     private static final String DOKTER_REQUEST_URL = "http://latif.taungapain.com/tampil_dokter.php";
     private Map<String, String> params;
 
-    public Dokter2Request(String id_poli, Response.Listener<String> listener){
+    public Dokter2Request(String id_rs_poli, Response.Listener<String> listener){
         super(Method.POST,DOKTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
         //params.put("id_pasien", id_pasien);
-        params.put("id_poli", id_poli);
+        params.put("id_rs_poli", id_rs_poli);
 
     }
 

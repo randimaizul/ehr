@@ -34,6 +34,8 @@ public class ProfileActivity extends AppCompatActivity {
     EditText namaPasienET,alamatET,noAsuransiET,agamaET,namaOrtuET,goldarET;
     DatePicker tanggalLahirDP;
     Spinner asuransiSP;
+    Spinner tesGD;
+    Spinner tesAgama;
     Button inputProfil;
     public String nama_pasien;
     public String no_asuransi;
@@ -44,6 +46,8 @@ public class ProfileActivity extends AppCompatActivity {
     public String id_user2;
     public String nama_orang_tua;
     public String golongan_darah;
+    public String tesgol;
+    public String tesgam;
     private Spinner spinner;
     private ArrayList<Asuransi> jenis_asuransi;
     private AsuransiSpinner adapter;
@@ -71,14 +75,56 @@ public class ProfileActivity extends AppCompatActivity {
         namaPasienET = (EditText) findViewById(R.id.nama_pasien_et);
         alamatET = (EditText) findViewById(R.id.alamat_et);
         noAsuransiET = (EditText) findViewById(R.id.no_asuransi_et);
-        agamaET = (EditText) findViewById(R.id.agama_et);
+        //agamaET = (EditText) findViewById(R.id.agama_et);
         namaOrtuET = (EditText) findViewById(R.id.nama_orangtua_et);
-        goldarET = (EditText) findViewById(R.id.goldar_et);
+        //goldarET = (EditText) findViewById(R.id.goldar_et);
         inputProfil = (Button) findViewById(R.id.btnConfirm);
         jenis_asuransi = new ArrayList<Asuransi>();
         spinner = (Spinner) findViewById(R.id.jenis_asuransi_sp);
         getAsuransi();
+        tesAgama = (Spinner) findViewById(R.id.tesagama);
+        getAgama();
+        tesGD = (Spinner) findViewById(R.id.tesgoldar);
+        getGoldar();
         insertProfile();
+    }
+
+    private void getGoldar(){
+        tesGD.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                tesgol = (String) tesGD.getSelectedItem();
+                Toast.makeText(getBaseContext(), tesgol.toString(),
+                        Toast.LENGTH_SHORT).show();
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void getAgama(){
+        tesAgama.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                tesgam = (String) tesAgama.getSelectedItem();
+                Toast.makeText(getBaseContext(), tesgam.toString(),
+                        Toast.LENGTH_SHORT).show();
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private void getAsuransi(){
@@ -97,7 +143,7 @@ public class ProfileActivity extends AppCompatActivity {
                         JSONObject result = new JSONObject(response);
                         JSONArray array = result.getJSONArray("asuransi");
 
-                        Asuransi asura = new Asuransi("0","Pilih Asuransi");
+                        Asuransi asura = new Asuransi("0","-- Pilih Asuransi --");
                         jenis_asuransi.add(asura);
 
                         for(int i=0;i<array.length();i++){
@@ -136,9 +182,11 @@ public class ProfileActivity extends AppCompatActivity {
                 final String id_user = id_user2;
                 final String alamat = alamatET.getText().toString();
                 final String no_asuransi = noAsuransiET.getText().toString();
-                final String agama = agamaET.getText().toString();
+                //final String agama = agamaET.getText().toString();
+                final String agama = tesgam;
                 final String nama_orangtua = namaOrtuET.getText().toString();
-                final String golongan_darah = goldarET.getText().toString();
+                //final String golongan_darah = goldarET.getText().toString();
+                final String golongan_darah = tesgol;
                 final Asuransi id_asuransi = (Asuransi) spinner.getSelectedItem();
                 final String tanggal_lahir = String.valueOf(tanggalLahirDP.getYear())+"-"+String.valueOf(tanggalLahirDP.getMonth()+1)+"-"+String.valueOf(tanggalLahirDP.getDayOfMonth());
 
@@ -157,6 +205,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 Intent book = new Intent(ProfileActivity.this, MainActivity.class); //penting
                                 book.putExtra("nama_pasien",nama_pasien); //penting
                                 book.putExtra("id_pasien",id_pasien); //penting
+                                book.putExtra("id_user",id_user); //penting
 
                                 /* Untuk disable edit text
                                 namaPasienET.setFocusable(false);

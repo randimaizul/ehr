@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/login">
+    <!-- android:background="@color/colorPrimary" -->
 
     <LinearLayout
         android:orientation="vertical"
@@ -13,21 +14,24 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <android.support.design.widget.CoordinatorLayout
+      <!--  <android.support.design.widget.CoordinatorLayout
             android:layout_width="307dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="1dp">
-        </android.support.design.widget.CoordinatorLayout>
+        </android.support.design.widget.CoordinatorLayout>-->
+
+
 
         <!-- Kode Pasien Label -->
         <ImageView
             android:id="@+id/logoapps"
-            android:layout_width="154dp"
-            android:layout_height="78dp"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            android:src="@drawable/logo_ehr2"
-            android:layout_marginBottom="40sp"
+            android:src="@drawable/ehr3"
+            android:layout_marginTop="50sp"
+            android:layout_marginBottom="80sp"
             android:contentDescription="@string/app_name"
             />
 
@@ -35,7 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:background="@color/textwhite"
+            >
             <EditText android:id="@+id/txtKoPas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:background="@color/textwhite">
             <EditText android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,6 +80,8 @@
             android:layout_marginBottom="24dp"
             android:text="@string/strDaftarBaru"
             android:gravity="center"
+            android:textColor="@color/btnColorBlack"
+            android:textStyle="bold"
             android:textSize="16sp"/>
 
     </LinearLayout>

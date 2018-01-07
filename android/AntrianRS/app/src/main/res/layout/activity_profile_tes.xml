@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/colorPrimary">
+    android:background="@color/textwhite">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/strProfil"
         android:gravity="center"
+        android:textColor="@color/btnColorBlack"
         android:textSize="20sp"/>
 
     <android.support.design.widget.TextInputLayout
@@ -74,7 +75,7 @@
         android:layout_marginBottom="2dp"/>
 
     <!--  Agama Label -->
-    <android.support.design.widget.TextInputLayout
+    <!--<android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -84,10 +85,29 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:hint="@string/agama" />
-    </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.TextInputLayout>-->
+
+    <Spinner
+        android:id="@+id/tesagama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
+        android:entries="@array/Religion"
+        android:hint="Agama"/>
 
     <!--  Golongan Darah Label -->
-    <android.support.design.widget.TextInputLayout
+
+    <Spinner
+        android:id="@+id/tesgoldar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
+        android:entries="@array/GolonganDar"
+        android:hint="@string/GolDarah"/>
+
+    <!--<android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -97,7 +117,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:hint="@string/GolDarah" />
-    </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.TextInputLayout>-->
 
     <!--  Nomor Handphone Label -->
     <!--<android.support.design.widget.TextInputLayout-->
@@ -119,7 +139,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="7dp"
         android:hint="@string/Asuransi"/>
 
     <!--  No. Asuransi -->

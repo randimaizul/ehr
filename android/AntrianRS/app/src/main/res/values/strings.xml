@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AntrianRS</string>
+    <string name="app_name">EHR</string>
     <string name="title_activity_register">RegisterActivity</string>
 
     <string name="strDaftarBaru">Daftar Baru</string>
@@ -17,6 +17,7 @@
     <string name="RePassword">Re-Type Password</string>
     <string name="BuatAkun">Buat Akun</string>
     <string name="PunyaAkun">Punya Akun? Silahkan Login</string>
+    <string name="EHR">EHR</string>
 
     <string name="Daftar">Daftar</string>
     <string name="Tanggal">Tanggal</string>
@@ -37,6 +38,13 @@
     <string name="nama_poli">Nama Poli</string>
     <string name="nama_dokter">Nama Dokter</string>
     <string name="nama_RS">Nama Rumah Sakit</string>
+    <string name="no_daftar">No. Pendaftaran :</string>
+    <string name="jns_asuransi">Anda Menggunakan Asuransi :</string>
+    <string name="nom_asuransi">No. Asuransi Anda :</string>
+    <string name="Txtnama_pasien">Nama Anda :</string>
+    <string name="Txtnama_poli">Poli :</string>
+    <string name="Txtnama_dokter">Dokter :</string>
+    <string name="Txtnama_RS">Rumah Sakit :</string>
     <string name="hospital_queue">Hospital Queue</string>
     <string name="hosque">HosQue</string>
     <string name="nomor_bpjs">Nomor BPJS (isi 0 jika tidak ada)</string>
@@ -58,7 +66,7 @@
     <string name="strBerobat">Mulai Berobat</string>
     <string name="strProfil">Profil Anda</string>
     <string name="strRiwayat">Riwayat Pengobatan</string>
-    <string name="strHandphone">No. Handphone (08xxxxx)</string>
+    <string name="strHandphone">No. Handphone (08xxxxxxxxx)</string>
     <string name="strAlamat">Alamat</string>
     <string name="strOrtu">Nama Orang Tua Kandung</string>
     <string name="strSimpan">Simpan</string>
@@ -68,6 +76,26 @@
     <string name="strUseBPJS">Saya Ingin Menggunakan BPJS</string>
     <string name="agama">Agama</string>
     <string name="thanks">Terima Kasih</string>
+    <string name="riwayat">Riwayat</string>
+    <string name="RekMed">Rekam Medis</string>
+
+    <string-array name="GolonganDar">
+        <item>-- Pilih Golongan Darah --</item>
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+        <item>O</item>
+    </string-array>
+
+    <string-array name="Religion">
+        <item>-- Pilih Agama --</item>
+        <item>Islam</item>
+        <item>Protestan</item>
+        <item>Katolik</item>
+        <item>Hindu</item>
+        <item>Buddha</item>
+        <item>Kong Hu Cu</item>
+    </string-array>
 
     <string-array name="PoliGigi">
         <item>Dokter Gigi 1</item>

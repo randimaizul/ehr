@@ -281,7 +281,7 @@ public class BerobatActivity extends AppCompatActivity {
                 };
 
 
-                Dokter2Request dokter2Request = new Dokter2Request(id_poli.ambilIdPoli(), responseListener);
+                Dokter2Request dokter2Request = new Dokter2Request(id_poli.ambilIdRSPoli(), responseListener);
                 RequestQueue queue = Volley.newRequestQueue(BerobatActivity.this);
                 queue.add(dokter2Request);
             }
@@ -325,6 +325,7 @@ public class BerobatActivity extends AppCompatActivity {
                                 book.putExtra("nomor_pendaftaran",nomor_pendaftaran); //penting
                                 book.putExtra("id_pendaftaran",id_pendaftaran); //penting
                                 book.putExtra("id_pasien",id_pasien); //penting
+                                book.putExtra("id_user",id_user); //penting
 
                                 //book.putExtra("id_user",id_user);
                                 //book.putExtra("jenis_asuransi",spinner.getSelectedItem().toString());

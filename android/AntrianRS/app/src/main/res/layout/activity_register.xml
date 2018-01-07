@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/login">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,11 +15,23 @@
         android:paddingRight="24dp">
 
         <!--  Name Label -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/strDaftarBaru"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:textColor="@color/btnColorBlack"
+            android:textSize="25sp"/>
+
+        <!--  Name Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:background="@color/textwhite">
             <EditText android:id="@+id/txtKoPas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:background="@color/textwhite">
             <EditText android:id="@+id/txtPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,7 +73,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:background="@color/textwhite">
             <EditText android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,7 +87,7 @@
             android:id="@+id/btnRegister"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="140dp"
             android:layout_marginBottom="24dp"
             android:background="@color/btnColorBlack"
             android:textColor="#ffffff"
@@ -86,6 +100,8 @@
             android:layout_marginBottom="24dp"
             android:text="@string/punya_akun_silahkan_login"
             android:gravity="center"
+            android:textColor="@color/btnColorBlack"
+            android:textStyle="bold"
             android:textSize="16sp"/>
 
     </LinearLayout>
