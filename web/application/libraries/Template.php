@@ -8,7 +8,11 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	}
 	
 	public function backend($general,$filename,$session=null){
-		$level = 'pegawai';
+		if($session['logged_in']['status'] == '1'){
+			$level = "pegawai";
+		} else if($session['logged_in']['status'] == '2'){
+			$level = "dokter";
+		}
 		$this->ci->load->view('template/backend/'.$level.'/header', $session);
 		$this->ci->load->view('template/backend/'.$level.'/top_menu_admin', $session);
 		$this->ci->load->view('template/backend/'.$level.'/left_menu_admin', $session);

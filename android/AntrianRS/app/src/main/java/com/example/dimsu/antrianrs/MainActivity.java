@@ -15,14 +15,14 @@ import com.synnapps.carouselview.ViewListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button daftarPoli,rawatInap,ambilObat;
+    private Button profil,berobat,riwayat;
 
     private String id_pasien;
     private String id_user;
 
     CarouselView carouselView;
 
-    int carouselImages[] = {R.drawable.hospital,R.drawable.ginjal,R.drawable.order};
+    int carouselImages[] = {R.drawable.garis,R.drawable.operasi,R.drawable.vip};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Bundle bundle = getIntent().getExtras();
         //idPasien = bundle.getInt("idPasien");
@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         carouselView.setPageCount(carouselImages.length);
         carouselView.setImageListener(imageListener);
 
-        daftarPoli = (Button) findViewById(R.id.btn_profil);
-        rawatInap = (Button) findViewById(R.id.btn_registrasi);
-        ambilObat = (Button) findViewById(R.id.btn_riwayat);
+        profil = (Button) findViewById(R.id.btn_profil);
+        berobat = (Button) findViewById(R.id.btn_registrasi);
+        riwayat = (Button) findViewById(R.id.btn_riwayat);
 
 
         funcProfile();
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void funcProfile(){
-        daftarPoli.setOnClickListener(new View.OnClickListener() {
+        profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,ProfileActivity.class);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void funcBerobat(){
-        rawatInap.setOnClickListener(new View.OnClickListener() {
+        berobat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,BerobatActivity.class);
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void funcRiwayat(){
-        ambilObat.setOnClickListener(new View.OnClickListener() {
+        riwayat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,RiwayatActivity.class);

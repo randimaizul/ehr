@@ -3,3 +3,4 @@ Electronic Health Records adalah aplikasi yang menyimpan seluruh riwayat pengoba
 
 # API
 Akses API : [api.taungapain.com](http://api.taungapain.com/api/rsakit)
+Akses Website : [id.taungapain.com](http://id.taungapain.com/)

@@ -57,12 +57,7 @@
 				<!-- Support tickets -->
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h6 class="panel-title">Support Tickets Today</h6>
-						<div class="heading-elements">
-							<button type="button" class="btn btn-link daterange-ranges heading-btn text-semibold">
-								<i class="icon-calendar3 position-left"></i> <span></span> <b class="caret"></b>
-							</button>
-	                	</div>
+						<h6 class="panel-title">Data Pendaftaran Hari ini</h6>
 					</div>
 
 					<div class="table-responsive">
@@ -71,29 +66,33 @@
 								<tr>
 									<td class="col-md-4">
 										<div class="media-left media-middle">
-											<div id="tickets-status"></div>
-										</div>
-
-										<div class="media-left">
-											<h5 class="text-semibold no-margin">14,327 <small class="text-success text-size-base"><i class="icon-arrow-up12"></i> (+2.9%)</small></h5>
-											<span class="text-muted"><span class="status-mark border-success position-left"></span> Jun 16, 10:00 am</span>
-										</div>
-									</td>
-
-									<td class="col-md-3">
-										<div class="media-left media-middle">
 											<a href="#" class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-xs btn-icon"><i class="icon-alarm-add"></i></a>
 										</div>
 
 										<div class="media-left">
 											<h5 class="text-semibold no-margin">
-												1,132 <small class="display-block no-margin">total tickets</small>
+												<?php 
+													if($pasien_booking != '0'){
+														$booking = count((array)$pasien_booking);
+													} else {$booking  = $pasien_booking;}
+													if($pasien_approve != '0'){
+														$approve = count((array)$pasien_approve);
+													} else { $approve = $pasien_approve; }
+													if($pasien_closed != '0'){
+														$closed = count((array)$pasien_closed);
+													} else { $closed = $pasien_closed; }
+													echo $booking+$approve+$closed;
+												?> <small class="display-block no-margin">total tickets</small>
 											</h5>
 										</div>
 									</td>
 
+									<td class="col-md-3">
+										
+									</td>
+
 									<td class="text-right col-md-2">
-										<a href="#" class="btn bg-teal-400">+ New Ticket</a>
+										<button class="btn bg-teal-400" data-toggle="modal" data-target="#search_pasien">+ New Ticket</button>
 									</td>
 								</tr>
 							</tbody>
@@ -104,161 +103,132 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th style="width: 50px">Time</th>
-									<th style="width: 300px">User</th>
-									<th>Description</th>
+									<th style="width: 50px">Waktu</th>
+									<th style="width: 300px">Nama Pasien</th>
+									<th>Dokter</th>
 									<th class="text-center" style="width: 20px;"><i class="icon-arrow-down12"></i></th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="active border-double">
-									<td colspan="3">Active tickets</td>
+									<td colspan="3">Booking tickets</td>
 									<td class="text-right">
-										<span class="badge badge-default">24</span>
-									</td>
-								</tr>
-
-								<tr>
-									<td class="text-center">
-										<h6 class="no-margin"><small class="display-block text-size-small no-margin">10:30:00</small></h6>
-									</td>
-									<td>
-										<div class="media-body">
-											<a href="#" class="display-inline-block text-default text-semibold letter-icon-title">[#1182] Maulana Khoir</a>
-											<span class="text-muted text-size-small"><small class="display-block text-size-small no-margin">Jalan Cimanuk No. 33 Blok B1, RT/RW 02/03, Tegal Gundil, Bogor Kota</small></span>
-										</div>
-									</td>
-									<td>
-										<a href="#" class="text-default display-inline-block">
-											<span class="text-semibold">dr. Sari Pati Cinta</span>
-											<span class="display-block text-muted">Poli Jantung (09:00 - 14:00)</span>
-										</a>
-									</td>
-									<td class="text-center">
-										<ul class="icons-list">
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
-												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="#"><i class="icon-undo"></i> Quick reply</a></li>
-													<li><a href="#"><i class="icon-history"></i> Full history</a></li>
-													<li class="divider"></li>
-													<li><a href="#"><i class="icon-checkmark3 text-success"></i> Resolve issue</a></li>
-													<li><a href="#"><i class="icon-cross2 text-danger"></i> Close issue</a></li>
-												</ul>
-											</li>
-										</ul>
-									</td>
-								</tr>
-
-								<tr>
-									<td class="text-center">
-										<h6 class="no-margin"><small class="display-block text-size-small no-margin">08:30:00</small></h6>
-									</td>
-									<td>
-										<div class="media-body">
-											<a href="#" class="display-inline-block text-default text-semibold letter-icon-title">[#1183] Randi Maizul Syaputra</a>
-											<span class="text-muted text-size-small"><small class="display-block text-size-small no-margin">Jalan Cimanuk No. 33 Blok B1, RT/RW 02/03, Tegal Gundil, Bogor Kota</small></span>
-										</div>
-									</td>
-									<td>
-										<a href="#" class="text-default display-inline-block">
-											<span class="text-semibold">dr. Pujangga Cinta</span>
-											<span class="display-block text-muted">Poli Hati (09:00 - 14:00)</span>
-										</a>
-									</td>
-									<td class="text-center">
-										<ul class="icons-list">
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
-												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="#"><i class="icon-undo"></i> Quick reply</a></li>
-													<li><a href="#"><i class="icon-history"></i> Full history</a></li>
-													<li class="divider"></li>
-													<li><a href="#"><i class="icon-checkmark3 text-success"></i> Resolve issue</a></li>
-													<li><a href="#"><i class="icon-cross2 text-danger"></i> Close issue</a></li>
-												</ul>
-											</li>
-										</ul>
+										<span class="badge badge-default"><?php if($pasien_booking != '0'){echo count((array)$pasien_booking);}else{echo $pasien_booking;}?></span>
 									</td>
 								</tr>
 								
+								<?php if($pasien_booking != '0') { foreach($pasien_booking  as $key => $p) {?> 
+									<tr>
+										<td class="text-center">
+											<h6 class="no-margin"><small class="display-block text-size-small no-margin"><?php echo substr($p['tanggal_pendaftaran'], 10) ?></small></h6>
+										</td>
+
+										<td>
+											<div class="media-body">
+												<a href="#" class="display-inline-block text-default text-semibold letter-icon-title">[#<?php echo $p['nomor_pendaftaran']?>] <?php echo $p['nama_pasien']?></a>
+												<span class="text-muted text-size-small"><small class="display-block text-size-small no-margin"><?php echo $p['alamat_pasien']?></small></span>
+											</div>
+										</td>
+
+										<td>
+											<a href="#" class="text-default display-inline-block">
+												<span class="text-semibold"><?php echo $p['nama_dokter']?></span>
+												<span class="display-block text-muted"><?php echo $p['nama_poli']?></span>
+											</a>
+										</td>
+										<td class="text-center">
+											<a href="<?php echo base_url('pegawai/pasien/approve/'.$p['id_pendaftaran'])?>" class="label bg-primary">Approve</a>
+										</td>
+									</tr>
+								<?php } } ?>
+								
 								<tr class="active border-double">
-									<td colspan="3">Resolved tickets</td>
+									<td colspan="3">Approve tickets</td>
 									<td class="text-right">
-										<span class="badge bg-success">42</span>
+										<span class="badge bg-success"><?php if($pasien_approve != '0'){echo count((array)$pasien_approve);}else{echo $pasien_approve;}?></span>
 									</td>
 								</tr>
 
-								<tr>
-									<td class="text-center">
-										<i class="icon-checkmark3 text-success"></i>
-									</td>
-									<td>
-										<div class="media-body">
-											<a href="#" class="display-inline-block text-default text-semibold letter-icon-title">[#1182] Maulana Khoir</a>
-											<span class="text-muted text-size-small"><small class="display-block text-size-small no-margin">Jalan Cimanuk No. 33 Blok B1, RT/RW 02/03, Tegal Gundil, Bogor Kota</small></span>
-										</div>
-									</td>
-									<td>
-										<a href="#" class="text-default display-inline-block">
-											<span class="text-semibold">dr. Sari Pati Cinta</span>
-											<span class="display-block text-muted">Poli Jantung (09:00 - 14:00)</span>
-										</a>
-									</td>
-									<td class="text-center">
-										<ul class="icons-list">
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
-												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="#"><i class="icon-undo"></i> Quick reply</a></li>
-													<li><a href="#"><i class="icon-history"></i> Full history</a></li>
-													<li class="divider"></li>
-													<li><a href="#"><i class="icon-checkmark3 text-success"></i> Resolve issue</a></li>
-													<li><a href="#"><i class="icon-cross2 text-danger"></i> Close issue</a></li>
-												</ul>
-											</li>
-										</ul>
-									</td>
-								</tr>
+								<?php if($pasien_approve != '0') { foreach($pasien_approve  as $key => $p) {?> 
+									<tr>
+										<td class="text-center">
+											<h6 class="no-margin"><small class="display-block text-size-small no-margin"><?php echo substr($p['tanggal_pendaftaran'], 10) ?></small></h6>
+										</td>
+										<td>
+											<div class="media-body">
+												<a href="#" class="display-inline-block text-default text-semibold letter-icon-title">[#<?php echo $p['nomor_pendaftaran']?>] <?php echo $p['nama_pasien']?></a>
+												<span class="text-muted text-size-small"><small class="display-block text-size-small no-margin"><?php echo $p['alamat_pasien']?></small></span>
+											</div>
+										</td>
+
+										<td>
+											<a href="#" class="text-default display-inline-block">
+												<span class="text-semibold"><?php echo $p['nama_dokter']?></span>
+												<span class="display-block text-muted"><?php echo $p['nama_poli']?></span>
+											</a>
+										</td>
+										<td class="text-center">
+											<!-- <a href="<?php echo base_url('pegawai/pasien/approve/')?>" class="label bg-primary">Approve</a> -->
+											<!-- <ul class="icons-list">
+												<li class="dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+													<ul class="dropdown-menu dropdown-menu-right">
+														<li><a href="#"><i class="icon-undo"></i> Quick reply</a></li>
+														<li><a href="#"><i class="icon-history"></i> Full history</a></li>
+														<li class="divider"></li>
+														<li><a href="#"><i class="icon-checkmark3 text-success"></i> Resolve issue</a></li>
+														<li><a href="#"><i class="icon-cross2 text-danger"></i> Close issue</a></li>
+													</ul>
+												</li>
+											</ul> -->
+										</td>
+									</tr>
+								<?php } } ?>
 
 								<tr class="active border-double">
-									<td colspan="3">Closed tickets</td>
+									<td colspan="3">Closed tickets </td>
 									<td class="text-right">
-										<span class="badge bg-danger">37</span>
+										<span class="badge bg-danger"><?php if($pasien_closed != '0'){echo count((array)$pasien_closed);}else{echo $pasien_closed;}?></span>
 									</td>
 								</tr>
 
-								<tr>
-									<td class="text-center">
-										<i class="icon-cross2 text-danger-400"></i>
-									</td>
-									<td>
-										<div class="media-body">
-											<a href="#" class="display-inline-block text-default text-semibold letter-icon-title">[#1182] Maulana Khoir</a>
-											<span class="text-muted text-size-small"><small class="display-block text-size-small no-margin">Jalan Cimanuk No. 33 Blok B1, RT/RW 02/03, Tegal Gundil, Bogor Kota</small></span>
-										</div>
-									</td>
-									<td>
-										<a href="#" class="text-default display-inline-block">
-											<span class="text-semibold">dr. Sari Pati Cinta</span>
-											<span class="display-block text-muted">Poli Jantung (09:00 - 14:00)</span>
-										</a>
-									</td>
-									<td class="text-center">
-										<ul class="icons-list">
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
-												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="#"><i class="icon-undo"></i> Quick reply</a></li>
-													<li><a href="#"><i class="icon-history"></i> Full history</a></li>
-													<li class="divider"></li>
-													<li><a href="#"><i class="icon-checkmark3 text-success"></i> Resolve issue</a></li>
-													<li><a href="#"><i class="icon-cross2 text-danger"></i> Close issue</a></li>
-												</ul>
-											</li>
-										</ul>
-									</td>
-								</tr>
+								<?php if($pasien_closed != '0') { foreach($pasien_closed  as $key => $p) {?> 
+									<tr>
+										<td class="text-center">
+											<h6 class="no-margin"><small class="display-block text-size-small no-margin"><?php echo substr($p['tanggal_pendaftaran'], 10) ?></small></h6>
+										</td>
+										<td>
+											<div class="media-body">
+												<a href="#" class="display-inline-block text-default text-semibold letter-icon-title">[#<?php echo $p['nomor_pendaftaran']?>] <?php echo $p['nama_pasien']?></a>
+												<span class="text-muted text-size-small"><small class="display-block text-size-small no-margin"><?php echo $p['alamat_pasien']?></small></span>
+											</div>
+										</td>
+
+										<td>
+											<a href="#" class="text-default display-inline-block">
+												<span class="text-semibold"><?php echo $p['nama_dokter']?></span>
+												<span class="display-block text-muted"><?php echo $p['nama_poli']?></span>
+											</a>
+										</td>
+										<td class="text-center">
+											<!-- <a href="<?php echo base_url('pegawai/pasien/approve/')?>" class="label bg-primary">Approve</a> -->
+											<!-- <ul class="icons-list">
+												<li class="dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+													<ul class="dropdown-menu dropdown-menu-right">
+														<li><a href="#"><i class="icon-undo"></i> Quick reply</a></li>
+														<li><a href="#"><i class="icon-history"></i> Full history</a></li>
+														<li class="divider"></li>
+														<li><a href="#"><i class="icon-checkmark3 text-success"></i> Resolve issue</a></li>
+														<li><a href="#"><i class="icon-cross2 text-danger"></i> Close issue</a></li>
+													</ul>
+												</li>
+											</ul> -->
+										</td>
+									</tr>
+								<?php } } ?>
+
+
 							</tbody>
 						</table>
 					</div>
@@ -269,25 +239,14 @@
 				<!-- Daily sales -->
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h6 class="panel-title">Daily Dokter Stats</h6>
-						<div class="heading-elements">
-							<span class="heading-text">Total Pasien: <span class="text-bold text-danger-600 position-right">35</span></span>
-							<ul class="icons-list">
-		                		<li class="dropdown text-muted">
-		                			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog3"></i> <span class="caret"></span></a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li><a href="#"><i class="icon-sync"></i> Update data</a></li>
-										<li><a href="#"><i class="icon-list-unordered"></i> Detailed log</a></li>
-										<li><a href="#"><i class="icon-pie5"></i> Statistics</a></li>
-										<li class="divider"></li>
-										<li><a href="#"><i class="icon-cross3"></i> Clear list</a></li>
-									</ul>
-		                		</li>
-		                	</ul>
-						</div>
+						<h6 class="panel-title">Status Dokter Hari ini</h6>
+						<!-- <div class="heading-elements">
+							<span class="heading-text">Total Pasien: <span class="text-bold text-danger-600 position-right"><?php// echo $approve+$closed;?></span></span>
+							
+						</div> -->
 					</div>
 
-					<div class="panel-body">
+					<div class="panel-body" style="padding:0px;">
 						<div id="sales-heatmap"></div>
 					</div>
 
@@ -297,42 +256,26 @@
 								<tr>
 									<th>Dokter</th>
 									<th>Status</th>
-									<th>Pasien</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>
-										<div class="media-body">
-											<div class="media-heading">
-												<a href="#" class="letter-icon-title">dr. Sari Pati Cinta</a>
+
+								<?php if($dokter != '0'){ foreach($dokter  as $key => $d) { ?>
+									<tr>
+										<td>
+											<div class="media-body">
+												<div class="media-heading">
+													<span class="letter-icon-title"><?php echo $d['nama_dokter']?></span>
+												</div>
+
+												<div class="text-muted text-size-small"><i class="icon-lifebuoy text-size-mini position-left"></i> <?php echo $d['nama_poli']?></div>
 											</div>
+										</td>
 
-											<div class="text-muted text-size-small"><i class="icon-lifebuoy text-size-mini position-left"></i> Mata</div>
-										</div>
-									</td>
 
-									<td><span class="label bg-success-400">Active</span></td>
-									<td>
-										<span class="badge badge-primary">12</span>
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<div class="media-body">
-											<div class="media-heading">
-												<a href="#" class="letter-icon-title">dr. Pujangga Cinta</a>
-											</div>
-
-											<div class="text-muted text-size-small"><i class="icon-lifebuoy text-size-mini position-left"></i> Penyakit dalam</div>
-										</div>
-									</td>
-									<td><span class="label bg-danger">Closed</span></td>
-									<td>
-										<span class="badge badge-primary">12</span>
-									</td>
-								</tr>
+										<td><span class="badge  <?php if($d['status'] == '1') {echo "bg-success-400";} else {echo "badge-danger";} ?> "><?php if($d['status'] == '1') {echo "Active";} else {echo "CLosed";} ?></span></td>
+									</tr>
+								<?php } } ?>
 							</tbody>
 						</table>
 					</div>
@@ -352,3 +295,77 @@
 
 </div>
 
+<div id="search_pasien" class="modal fade" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-teal-300">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h6 class="modal-title">Cari Pasien</h6>
+			</div>
+
+			<div class="modal-body">				
+				<div class="panel panel-flat">
+					<div class="panel-body">
+						<fieldset>
+							<div class="row">
+								<div class="col-md-12">
+									<form id="form_search_pasien">
+										<div class="input-group">										
+											<input type="text" id="nama_pasien" name="nama_pasien" class="form-control" placeholder="Nama Pasien">
+											<span class="input-group-btn">
+												<button type="submit" class="btn bg-teal" type="button">Cari Pasien</button>
+											</span>
+										</div>
+									</form>
+								</div>
+							</div>
+							<br>
+							<div class="row" id="hasil_search">								
+							</div>
+							<div class="row" id="panel_poli" style="display: none">
+								<form id="form_tambah_pasien" method="post" action="<?php echo base_url('pegawai/pasien/insert_pasien_dashboard')?>">
+									<input id="id_pasien" type="hidden" name="id_pasien" value="0">
+									<legend class="text-semibold">Informasi Pasien</legend>
+									<div id="informasi_pasien" style="margin-bottom: 10px;">
+									</div>
+									<legend class="text-semibold">Informasi Poli dan Dokter</legend>
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Poli</label>
+											<select name="id_poli" id="id_poli" class="form-control" required onchange="list_dokter()">
+												<option value="0" disabled selected>-- Pilih Poli --</option>
+												<?php foreach($rsp as $key => $poli) { ?>
+							                       <option value="<?php echo $poli['id_poli']?>"><?php echo $poli['nama_poli']?></option>
+							                    <?php } ?>        
+							                </select>
+										</div>
+									</div>
+
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Dokter</label>
+											<div id="list_dokter">
+												<select name="id_dokter" id="id_dokter" class="form-control" required>		
+													<option value="0" disabled selected>-- Pilih poli terlebih dahulu --</option> 
+								                </select>
+							                </div>
+										</div>
+										<input type="hidden" id="id_rs_poli" name="id_rs_poli" value="0">
+									</div>
+
+									<div class="col-md-12">
+										<div class="form-group">
+											<div class="text-right">
+												<button type="submit" class="btn btn-primary">Submit form <i class="icon-arrow-right14 position-right"></i></button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</fieldset>
+					</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+</div>

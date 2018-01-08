@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+//import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -31,8 +31,9 @@ public class BookingActivity extends AppCompatActivity {
     private String id_pasien2;
     private String nomor_pendaftaran2;
     private String id_pendaftaran2;
+    private String id_user2;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    //@RequiresApi(api = Build.VERSION_CODES.N)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class BookingActivity extends AppCompatActivity {
 
         long date = System.currentTimeMillis();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM MM dd, yyyy h:mm a");
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy h:mm a");
         String dateString = sdf.format(date);
         datetime.setText(dateString);
 
@@ -68,6 +69,7 @@ public class BookingActivity extends AppCompatActivity {
         id_pasien2 = bundle.getString("id_pasien");
         nomor_pendaftaran2 = bundle.getString("nomor_pendaftaran");
         id_pendaftaran2 = bundle.getString("id_pendaftaran");
+        id_user2 = bundle.getString("id_user");
 
         getData();
 
@@ -105,13 +107,23 @@ public class BookingActivity extends AppCompatActivity {
                         String nama_dokter = (String) jsonResponse.getJSONObject("pendaftaran").getString("nama_dokter");
                         String jenis_asuransi = (String) jsonResponse.getJSONObject("pendaftaran").getString("jenis_asuransi");
 
-                        namapasien.setText(nama_pasien);
-                        namapoli.setText(nama_poli);
-                        namadokter.setText(nama_dokter);
+                        String NamaPas = "Nama Anda : ";
+                        String NamaPol = "Poli : ";
+                        String NamaDok = "Dokter : ";
+                        String NamRS = "Rumah Sakit : ";
+                        String JenAs = "Asuransi Anda : ";
+                        String NoAs = "Nomor Asuransi : ";
+
+                        namapasien.setText(String.valueOf(NamaPas + nama_pasien));
+                        namapoli.setText(String.valueOf(NamaPol + nama_poli));
+                        namadokter.setText(String.valueOf(NamaDok + nama_dokter));
                         nomorpendaftaran.setText(nomor_pendaftaran);
-                        jenisasuransi.setText(jenis_asuransi);
-                        noasuransi.setText(no_asuransi);
-                        namars.setText(nama_rs);
+                        jenisasuransi.setText(String.valueOf(JenAs + jenis_asuransi));
+                        noasuransi.setText(String.valueOf(NoAs + no_asuransi));
+                        namars.setText(String.valueOf(NamRS + nama_rs));
+
+
+                        //inputNamaPoli.setText(String.valueOf(NP + nama_poli));
                         //JSONArray result = new JSONArray(jsonResponse.getString("jenis_asuransi"));
 //                        JSONObject result = new JSONObject(response);
 //                        JSONArray array = result.getJSONArray("pendaftaran");
@@ -158,6 +170,7 @@ public class BookingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(BookingActivity.this,MainActivity.class);
                 i.putExtra("id_pasien",id_pasien2);
+                i.putExtra("id_user",id_user2);
                 startActivity(i);
             }
         });

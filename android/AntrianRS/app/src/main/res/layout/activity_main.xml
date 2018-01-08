@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/textwhite">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -42,7 +42,8 @@
         <com.synnapps.carouselview.CarouselView
             android:id="@+id/carouselView"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="1dp"
             app:fillColor="#FFFFFFFF"
             app:pageColor="#00000000"
@@ -54,47 +55,47 @@
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_profil"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="75dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="0.35"
-            android:background="@color/btnColor2"
+            android:background="@color/btnColor3"
             android:padding="12dp"
-            android:drawableLeft="@drawable/profile_red"
+            android:drawableLeft="@drawable/profil_putih"
             android:text="@string/inputProfil"
+            android:textStyle="bold"
             android:textSize="20dp"
             android:textAlignment="center"
-            android:textColor="#c0392b" />
+            android:textColor="#ffffff" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_registrasi"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="85dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
             android:layout_weight="0.35"
-            android:background="@color/btnColor2"
+            android:background="@color/btnColor3"
             android:padding="12dp"
-            android:drawableLeft="@drawable/berobat_red"
+            android:drawableLeft="@drawable/berobat_putih"
             android:textSize="20dp"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:text="@string/strBerobat"
-            android:textColor="#c0392b" />
+            android:textColor="#ffffff" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_riwayat"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="85dp"
             android:layout_weight="0.35"
-            android:background="@color/btnColor2"
+            android:background="@color/btnColor3"
             android:padding="12dp"
-            android:drawableLeft="@drawable/riwayat_red"
+            android:drawableLeft="@drawable/riwayat_putih"
             android:textSize="20dp"
+            android:textStyle="bold"
             android:text="@string/strRiwayat"
             android:textAlignment="center"
-            android:textColor="#c0392b" />
+            android:textColor="#ffffff" />
     </LinearLayout>
 
 

@@ -10,11 +10,11 @@ class Rumahsakit extends MY_Controller {
 
 	public function index(){
 		// $session = $this->admin_m->get_login_admin2('LabSatu | Labid', 'dashboard', 'dashboard');
-		$session = "";
+		$session = $this->session->userdata();
 		$filename['page']="rumahsakit";
 		$filename['js']="js";
 		$general['page'] = "Rumah Sakit";
-		$general['rs'] = $this->rs->get_all_rs();
+		$general['rs'] = $this->rs->get_all_rs()['obj'];
 		$this->template->backend($general,$filename,$session);
 	}
 }

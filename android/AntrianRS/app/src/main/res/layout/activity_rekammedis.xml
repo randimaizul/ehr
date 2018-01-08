@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textwhite">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/RekMed"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:textColor="@color/btnColorBlack"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/txtKeluhan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/btnColorBlack"
+        android:text="Keluhan Utama" />
+
+    <TextView
+        android:id="@+id/txtAlergi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/btnColorBlack"
+        android:text="Riwayat Alergi" />
+
+    <TextView
+        android:id="@+id/txtVital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/btnColorBlack"
+        android:text="Tanda Vital" />
+
+    <TextView
+        android:id="@+id/txtpenanganan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/btnColorBlack"
+        android:text="Jenis Penanganan" />
+
+    <TextView
+        android:id="@+id/txtketerangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/btnColorBlack"
+        android:text="Keterangan" />
+
+    <ListView
+        android:id="@+id/listIDPen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@layout/list_new_selector" />
+</LinearLayout>

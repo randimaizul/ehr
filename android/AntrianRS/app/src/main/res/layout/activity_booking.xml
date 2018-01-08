@@ -3,16 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
-    tools:context="com.example.dimsu.antrianrs.BookingActivity"
-    >
+    android:background="@drawable/bg1">
+    <!--tools:context="com.example.dimsu.antrianrs.BookingActivity"-->
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
 
-        >
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <FrameLayout
             android:layout_width="299dp"
@@ -40,11 +42,11 @@
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/booking_summary"
+                        android:text="@string/Daftar_summary"
                         android:textColor="@color/textwhite"
                         android:textSize="17sp"
                         android:gravity="center"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="45dp"
                         />
                 </LinearLayout>
 
@@ -57,13 +59,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="26dp"
+                    android:layout_marginLeft="10dp"
                     >
 
                     <TextView
                         android:layout_weight="0.8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/your_booking_no"
+                        android:text="@string/no_daftar"
                         android:textColor="@color/text"
                         android:textSize="16sp"
                         android:gravity="right"
@@ -90,7 +93,7 @@
                     android:layout_below="@+id/ordernumber"
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
+
                     android:layout_marginBottom="6dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp" />
@@ -103,13 +106,13 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="16dp"
-                    android:layout_marginLeft="55dp"
+                    android:layout_marginLeft="30dp"
                     >
 
 
                     <ImageView
                         android:src="@drawable/date"
-                        android:layout_width="45dp"
+                        android:layout_width="30dp"
                         android:layout_height="28dp"
                         android:layout_gravity="right"
                         />
@@ -134,8 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:background="@color/div"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp" />
 
@@ -168,15 +170,19 @@
                         android:gravity="center"
                         android:layout_marginLeft="6dp"
                         >
+
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/namapasien"
                             android:text="@string/nama_pasien"
                             android:textColor="@color/text"
+
                             android:textSize="15sp"
 
                             />
+
 
                         <TextView
                             android:layout_marginTop="10dp"
@@ -216,7 +222,7 @@
                             android:id="@+id/jnsasuransi"
                             android:text="Jenis Asuransi"
                             android:textColor="@color/text"
-                            android:textSize="12sp"
+                            android:textSize="15sp"
                             />
 
                         <TextView
@@ -226,7 +232,7 @@
                             android:id="@+id/noasuransi"
                             android:text="@string/NoAsuransi"
                             android:textColor="@color/text"
-                            android:textSize="12sp"
+                            android:textSize="15sp"
                             />
 
 
@@ -299,7 +305,6 @@
                     android:layout_below="@+id/items"
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp" />
 
