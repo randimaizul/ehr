@@ -1,14 +1,19 @@
 package com.example.dimsu.antrianrs;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.dimsu.antrianrs.Helper.SessionManager;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 import com.synnapps.carouselview.ViewListener;
@@ -19,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     private String id_pasien;
     private String id_user;
+    SessionManager sessionManager;
 
     CarouselView carouselView;
 
-    int carouselImages[] = {R.drawable.garis,R.drawable.operasi,R.drawable.vip};
+    int carouselImages[] = {R.drawable.ehr5,R.drawable.garis,R.drawable.operasi,R.drawable.vip};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +38,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Bundle bundle = getIntent().getExtras();
-        //idPasien = bundle.getInt("idPasien");
+        Bundle bundle = getIntent().getExtras();
 
-        //Intent intent = getIntent();
-        //String kodePasien = intent.getStringExtra("kode_pasien");
+        sessionManager = new SessionManager(this);
 
-        //try{
-            Bundle bundle = getIntent().getExtras();
-            id_pasien = bundle.getString("id_pasien");
-            id_user = bundle.getString("id_user");
-        //}
-        //catch (Exception e){
-
-        //}
-
-
+        id_user = sessionManager.getIDuser();
+        id_pasien = sessionManager.getIDpasien();
+        Toast.makeText(MainActivity.this, id_user, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, id_pasien, Toast.LENGTH_SHORT).show();
 
         carouselView = (CarouselView) findViewById(R.id.carouselView);
         carouselView.setPageCount(carouselImages.length);
@@ -62,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         funcBerobat();
         funcRiwayat();
     }
-
-
 
     ImageListener imageListener = new ImageListener() {
         @Override
@@ -84,6 +80,26 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.logout,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    switch (item.getItemId()){
+        case R.id.menulogout:
+
+            sessionManager = new SessionManager(MainActivity.this);
+            sessionManager.logoutUser();
+
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
+    }
+
     public void funcProfile(){
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,ProfileActivity.class);
                 i.putExtra("id_pasien",id_pasien);
                 i.putExtra("id_user",id_user);
-                Toast.makeText(MainActivity.this, id_user, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, id_user, Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
         });
@@ -103,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,BerobatActivity.class);
                 i.putExtra("id_pasien",id_pasien);
                 i.putExtra("id_user",id_user);
-                Toast.makeText(MainActivity.this, id_pasien, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, id_pasien, Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
         });

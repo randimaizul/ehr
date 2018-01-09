@@ -56,40 +56,8 @@ public class RiwayatActivity extends AppCompatActivity {
                     jsonResponse = new JSONObject(response);
                     error = jsonResponse.getBoolean("error");
 
-                    //JSONObject jsonResponse = new JSONObject(response);
-                    //boolean error = jsonResponse.getBoolean("error");
-
                     if (!error){
-//                        String id_pendaftaran = (String) jsonResponse.getJSONObject("pendaftaran").getString("id_pendaftaran");
-//                        String tanggal_pendaftaran = (String) jsonResponse.getJSONObject("pendaftaran").getString("tanggal_pendaftaran");
-//                        String nomor_pendaftaran = (String) jsonResponse.getJSONObject("pendaftaran").getString("nomor_pendaftaran");
-//                        String id_pasien = (String) jsonResponse.getJSONObject("pendaftaran").getString("id_pasien");
-//                        String nama_pasien = (String) jsonResponse.getJSONObject("pendaftaran").getString("nama_pasien");
-//                        String no_asuransi = (String) jsonResponse.getJSONObject("pendaftaran").getString("no_asuransi");
-//                        String nama_rs = (String) jsonResponse.getJSONObject("pendaftaran").getString("nama_rs");
-//                        String nama_poli = (String) jsonResponse.getJSONObject("pendaftaran").getString("nama_poli");
-//                        String nama_dokter = (String) jsonResponse.getJSONObject("pendaftaran").getString("nama_dokter");
-//                        String jenis_asuransi = (String) jsonResponse.getJSONObject("pendaftaran").getString("jenis_asuransi");
-//
-//                        String NamaPas = "Nama Anda : ";
-//                        String NamaPol = "Poli : ";
-//                        String NamaDok = "Dokter : ";
-//                        String NamRS = "Rumah Sakit : ";
-//                        String JenAs = "Asuransi Anda : ";
-//                        String NoAs = "Nomor Asuransi : ";
-//
-//                        namapasien.setText(String.valueOf(NamaPas + nama_pasien));
-//                        namapoli.setText(String.valueOf(NamaPol + nama_poli));
-//                        namadokter.setText(String.valueOf(NamaDok + nama_dokter));
-//                        nomorpendaftaran.setText(nomor_pendaftaran);
-//                        jenisasuransi.setText(String.valueOf(JenAs + jenis_asuransi));
-//                        noasuransi.setText(String.valueOf(NoAs + no_asuransi));
-//                        namars.setText(String.valueOf(NamRS + nama_rs));
 
-
-//                        inputNamaPoli.setText(String.valueOf(NP + nama_poli));
-
-//                        JSONArray result = new JSONArray(jsonResponse.getString("jenis_asuransi"));
                         JSONObject result = new JSONObject(response);
                         JSONArray array = result.getJSONArray("history");
 
@@ -101,18 +69,11 @@ public class RiwayatActivity extends AppCompatActivity {
                             String nama_poli = asObj.getString("nama_poli");
                             String id_pendaftaran = asObj.getString("id_pendaftaran");
 
-
-
                             History listnya = new History(tanggal_pendaftaran,nama_rs, nama_poli, id_pendaftaran);
                             HistList.add(listnya);
 
-
-
                          }
-                        //spinner.setAdapter(new ArrayAdapter<String>(ProfileActivity.this, android.R.layout.simple_spinner_dropdown_item, jenis_asuransi));
-                        //spinner.setAdapter(new ArrayAdapter<Asuransi>(ProfileActivity.this, android.R.layout.simple_spinner_dropdown_item, jenis_asuransi));
-                        //adapterRS = new RumahSakitSpinner(BerobatActivity.this,android.R.layout.simple_spinner_dropdown_item,nama_RS);
-                        //spinnerRS.setAdapter(adapterRS);
+
                         adapterList = new RiwayatList(RiwayatActivity.this,HistList);
                         adaptList.setAdapter(adapterList);
 
@@ -152,20 +113,11 @@ public class RiwayatActivity extends AppCompatActivity {
                                         JSONObject result = new JSONObject(response);
                                         JSONArray array = result.getJSONArray("rekmed");
 
-                                        //for(int i=0;i<array.length();i++){
-
                                         JSONObject asObj = array.getJSONObject(0);
                                         String id_rekam_medis = asObj.getString("id_rekam_medis");
                                         String keluhan_utama = asObj.getString("keluhan_utama");
                                         String riwayat_alergi = asObj.getString("riwayat_alergi");
                                         String tanda_vital = asObj.getString("tanda_vital");
-                                        //Toast.makeText(RekamMedisActivity.this, id_rekam_medis, Toast.LENGTH_SHORT).show();
-                                        //Toast.makeText(RekamMedisActivity.this, keluhan_utama, Toast.LENGTH_SHORT).show();
-                                        //Toast.makeText(RekamMedisActivity.this, riwayat_alergi, Toast.LENGTH_SHORT).show();
-                                        //Toast.makeText(RekamMedisActivity.this, tanda_vital, Toast.LENGTH_SHORT).show();
-
-
-                                        //Toast.makeText(RiwayatActivity.this, itemValue.ambilIdPendaftaranHis(), Toast.LENGTH_SHORT).show();
 
                                         RekamMedis Rekmed = new RekamMedis(id_rekam_medis,keluhan_utama,riwayat_alergi,tanda_vital);
 
@@ -175,11 +127,8 @@ public class RiwayatActivity extends AppCompatActivity {
                                         in.putExtra("keluhan_utama", Rekmed.ambilKeluhanUtama());
                                         in.putExtra("riwayat_alergi", Rekmed.ambilRiwayatAlergi());
                                         in.putExtra("tanda_vital", Rekmed.ambilTandaVital());
-                                        //i.putExtra("id_user", id_user2);
+
                                         RiwayatActivity.this.startActivity(in);
-
-
-                                        //}
 
                                     }
                                 } catch (JSONException e1) {

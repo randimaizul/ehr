@@ -39,24 +39,23 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading");
 
-        /* Session */
-        /*sessionManager = new SessionManager(LoginActivity.this);
-        if(sessionManager.isLoggedIn()){
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-            //intent.putExtra("id_user", id_user);
-            //intent.putExtra("id_pasien", id_pasien);
-            startActivity(intent);
-            finish();
-        }*/
-
         builder = new AlertDialog.Builder(LoginActivity.this);
         builder.setMessage("")
                 .setNegativeButton(null, null)
                 .create();
 
-        //final EditText txtUsername = (EditText) findViewById(R.id.txtUsername);
         final EditText txtKoPas = (EditText) findViewById(R.id.txtKoPas);
         final EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
+
+        /* Session */
+        sessionManager = new SessionManager(LoginActivity.this);
+
+        if(sessionManager.isLoggedIn()==true){
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+
+            startActivity(intent);
+            finish();
+        }
 
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
         final TextView lnkRegister = (TextView) findViewById(R.id.lnkRegisterHere);
@@ -94,17 +93,13 @@ public class LoginActivity extends AppCompatActivity {
 
                                     String id_user = (String) jsonResponse.getJSONObject("user").getString("id_user");
                                     String id_pasien = (String) jsonResponse.getJSONObject("id_pasien").getString("id_pasien");
-                                    //String password = (String) jsonResponse.getJSONObject("password").getString("password");
-
-                                    //sessionManager.createLoginSession(id_user,id_pasien);
 
                                     Intent inmain = new Intent(LoginActivity.this, MainActivity.class);
-                                    inmain.putExtra("id_user", id_user);
-                                    inmain.putExtra("id_pasien", id_pasien);
-                                    //intent.putExtra("password", password);
-                                    Toast.makeText(LoginActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(LoginActivity.this, id_user, Toast.LENGTH_SHORT).show();
+                                    //inmain.putExtra("id_user", id_user);
+                                    //inmain.putExtra("id_pasien", id_pasien);
+                                    Toast.makeText(LoginActivity.this, "Anda Berhasil Login", Toast.LENGTH_SHORT).show();
 
+                                    sessionManager.createLoginSession(id_user,id_pasien);
                                     LoginActivity.this.startActivity(inmain);
 
                                 } else {

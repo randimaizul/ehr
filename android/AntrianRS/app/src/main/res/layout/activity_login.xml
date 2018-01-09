@@ -29,7 +29,7 @@
             android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:src="@drawable/ehr3"
+            android:src="@drawable/ehr5"
             android:layout_marginTop="50sp"
             android:layout_marginBottom="80sp"
             android:contentDescription="@string/app_name"

@@ -57,7 +57,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_tes);
 
-        //input_nama_pasien = (TextView) findViewById(R.id.input_nama_pasien);
         Bundle bundle = getIntent().getExtras();
         id_pasien = bundle.getString("id_pasien");
         id_user2 = bundle.getString("id_user");
@@ -67,17 +66,10 @@ public class ProfileActivity extends AppCompatActivity {
         int month = tanggalLahirDP.getMonth() + 1;
         int year = tanggalLahirDP.getYear();
 
-
-        //SimpleDateFormat dateFormatter = new SimpleDateFormat("MM-dd-yyyy");
-        //Calendar c = Calendar.getInstance();
-        //c.set(year, month, day);
-
         namaPasienET = (EditText) findViewById(R.id.nama_pasien_et);
         alamatET = (EditText) findViewById(R.id.alamat_et);
         noAsuransiET = (EditText) findViewById(R.id.no_asuransi_et);
-        //agamaET = (EditText) findViewById(R.id.agama_et);
         namaOrtuET = (EditText) findViewById(R.id.nama_orangtua_et);
-        //goldarET = (EditText) findViewById(R.id.goldar_et);
         inputProfil = (Button) findViewById(R.id.btnConfirm);
         jenis_asuransi = new ArrayList<Asuransi>();
         spinner = (Spinner) findViewById(R.id.jenis_asuransi_sp);
@@ -95,10 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 tesgol = (String) tesGD.getSelectedItem();
-                Toast.makeText(getBaseContext(), tesgol.toString(),
-                        Toast.LENGTH_SHORT).show();
-
-
+                //Toast.makeText(getBaseContext(), tesgol.toString(),Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -114,10 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 tesgam = (String) tesAgama.getSelectedItem();
-                Toast.makeText(getBaseContext(), tesgam.toString(),
-                        Toast.LENGTH_SHORT).show();
-
-
+                //Toast.makeText(getBaseContext(), tesgam.toString(),Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -139,7 +125,7 @@ public class ProfileActivity extends AppCompatActivity {
                     error = jsonResponse.getBoolean("error");
 
                     if (!error){
-                        //JSONArray result = new JSONArray(jsonResponse.getString("jenis_asuransi"));
+
                         JSONObject result = new JSONObject(response);
                         JSONArray array = result.getJSONArray("asuransi");
 
@@ -147,11 +133,7 @@ public class ProfileActivity extends AppCompatActivity {
                         jenis_asuransi.add(asura);
 
                         for(int i=0;i<array.length();i++){
-                            //try {
-                            //    jenis_asuransi.add(result.get(i).toString());
-                            //} catch (JSONException e) {
-                            //    e.printStackTrace();
-                            //}
+
                             JSONObject asObj = array.getJSONObject(i);
                             String id_as = asObj.getString("id_asuransi");
                             String jenis_as = asObj.getString("jenis_asuransi");
@@ -159,8 +141,7 @@ public class ProfileActivity extends AppCompatActivity {
                             jenis_asuransi.add(asur);
                             
                         }
-                        //spinner.setAdapter(new ArrayAdapter<String>(ProfileActivity.this, android.R.layout.simple_spinner_dropdown_item, jenis_asuransi));
-                        //spinner.setAdapter(new ArrayAdapter<Asuransi>(ProfileActivity.this, android.R.layout.simple_spinner_dropdown_item, jenis_asuransi));
+
                         adapter = new AsuransiSpinner(ProfileActivity.this,android.R.layout.simple_spinner_dropdown_item,jenis_asuransi);
                         spinner.setAdapter(adapter);
                     }
@@ -182,10 +163,8 @@ public class ProfileActivity extends AppCompatActivity {
                 final String id_user = id_user2;
                 final String alamat = alamatET.getText().toString();
                 final String no_asuransi = noAsuransiET.getText().toString();
-                //final String agama = agamaET.getText().toString();
                 final String agama = tesgam;
                 final String nama_orangtua = namaOrtuET.getText().toString();
-                //final String golongan_darah = goldarET.getText().toString();
                 final String golongan_darah = tesgol;
                 final Asuransi id_asuransi = (Asuransi) spinner.getSelectedItem();
                 final String tanggal_lahir = String.valueOf(tanggalLahirDP.getYear())+"-"+String.valueOf(tanggalLahirDP.getMonth()+1)+"-"+String.valueOf(tanggalLahirDP.getDayOfMonth());
@@ -193,14 +172,12 @@ public class ProfileActivity extends AppCompatActivity {
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //ProgressDialog progressDialog = null;
+
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean error = jsonResponse.getBoolean("error");
 
                             if (!error) {
-
-                                //String no_antrian = (String) jsonResponse.getJSONObject("user").getString("no_antrian");
 
                                 Intent book = new Intent(ProfileActivity.this, MainActivity.class); //penting
                                 book.putExtra("nama_pasien",nama_pasien); //penting
@@ -213,24 +190,14 @@ public class ProfileActivity extends AppCompatActivity {
                                 namaPasienET.setEnabled(false);
                                 */
 
-                                //book.putExtra("id_user",id_user);
-                                //book.putExtra("jenis_asuransi",spinner.getSelectedItem().toString());
-                                Toast.makeText(ProfileActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ProfileActivity.this, "Berhasil Input Profil", Toast.LENGTH_SHORT).show();
 
                                 ProfileActivity.this.startActivity(book); //penting
 
-                            } //else {
-                            //  builder.setMessage("Gagal Login");
-                            //  builder.setNegativeButton("Ulangi", null);
-                            // builder.show();
-
-                            //}
-
-                            //progressDialog.dismiss();
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //progressDialog.dismiss();
                             Toast.makeText(ProfileActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
                         }
 
