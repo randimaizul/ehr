@@ -32,10 +32,11 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
 
     // User name (make variable public to access from outside)
-    public static final String KEY_NAME = "name";
+    public static final String KEY_NAME_USER = "id_user";
 
+    public static final String KEY_NAME_PASIEN = "id_pasien";
     // Email address (make variable public to access from outside)
-    public static final String KEY_EMAIL = "email";
+    //public static final String KEY_EMAIL = "email";
 
     //public static final String KEY_NAMA_PASIEN = "nama_pasien";
 
@@ -49,15 +50,15 @@ public class SessionManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(String name, String email){
+    public void createLoginSession(String id_user,String id_pasien){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
         // Storing name in pref
-        editor.putString(KEY_NAME, name);
+        editor.putString(KEY_NAME_USER, id_user);
 
         // Storing email in pref
-        editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_NAME_PASIEN, id_pasien);
 
         // commit changes
         editor.commit();
@@ -84,7 +85,13 @@ public class SessionManager {
         }
 
     }
+    public String getIDuser(){
+        return pref.getString(KEY_NAME_USER,"");
+    }
 
+    public String getIDpasien(){
+        return pref.getString(KEY_NAME_PASIEN,"");
+    }
 
 
     /**
@@ -93,10 +100,10 @@ public class SessionManager {
     public HashMap<String, String> getUserDetails(){
         HashMap<String, String> user = new HashMap<String, String>();
         // user name
-        user.put(KEY_NAME, pref.getString(KEY_NAME, null));
+        user.put(KEY_NAME_USER, pref.getString(KEY_NAME_USER, null));
 
         // user email id
-        user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
+        user.put(KEY_NAME_PASIEN, pref.getString(KEY_NAME_PASIEN, null));
 
         // return user
         return user;

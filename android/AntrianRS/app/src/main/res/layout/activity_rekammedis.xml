@@ -65,6 +65,16 @@
         android:textColor="@color/btnColorBlack"
         android:text="Keterangan" />
 
+    <TextView
+        android:id="@+id/txtdaftarobad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/btnColorBlack"
+        android:text="Berikut daftar obat yang harus anda konsumsi:" />
+
     <ListView
         android:id="@+id/listIDPen"
         android:layout_width="match_parent"

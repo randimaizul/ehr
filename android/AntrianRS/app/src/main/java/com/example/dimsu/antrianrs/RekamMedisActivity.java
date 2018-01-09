@@ -31,8 +31,6 @@ public class RekamMedisActivity extends AppCompatActivity{
     TextView keluhanUtama, riwayatAlergi, tandaVital,keterangan2,jenisPenanganan;
     private String keter;
     private String jenPen;
-    //private String nama_dokter;
-    //private String no_antrian;
     private String id_pasien2;
     private String nomor_pendaftaran2;
     private String id_pendaftaran2;
@@ -81,62 +79,7 @@ public class RekamMedisActivity extends AppCompatActivity{
         riwayatAlergi.setText(String.valueOf(RiwAl + alergi));
         tandaVital.setText(String.valueOf(TanVi + vital));
 
-        //getData();
-        //id_rekmed = this.Rekmed.ambilIdRekMed();
-        //Toast.makeText(RekamMedisActivity.this, id_rekmed, Toast.LENGTH_SHORT).show();
-
         getPenanganan();
-    }
-
-    private void getData(){
-
-        Response.Listener<String> responseListener = new Response.Listener<String>(){
-
-            @Override
-            public void onResponse(String response) {
-                JSONObject jsonResponse = null;
-                boolean error = false;
-                try {
-                    jsonResponse = new JSONObject(response);
-                    error = jsonResponse.getBoolean("error");
-
-                    if (!error){
-
-                        JSONObject result = new JSONObject(response);
-                        JSONArray array = result.getJSONArray("rekmed");
-
-                        //for(int i=0;i<array.length();i++){
-
-                            JSONObject asObj = array.getJSONObject(0);
-                            String id_rekam_medis = asObj.getString("id_rekam_medis");
-                            String keluhan_utama = asObj.getString("keluhan_utama");
-                            String riwayat_alergi = asObj.getString("riwayat_alergi");
-                            String tanda_vital = asObj.getString("tanda_vital");
-                            //Toast.makeText(RekamMedisActivity.this, id_rekam_medis, Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(RekamMedisActivity.this, keluhan_utama, Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(RekamMedisActivity.this, riwayat_alergi, Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(RekamMedisActivity.this, tanda_vital, Toast.LENGTH_SHORT).show();
-
-
-
-
-                            RekamMedis Rekmed = new RekamMedis(id_rekam_medis,keluhan_utama,riwayat_alergi,tanda_vital);
-
-                            //Rekk.add(Rekmed);
-
-
-                        //}
-
-                    }
-                } catch (JSONException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        };
-
-        RekamMedisRequest rekammedisRequest = new RekamMedisRequest(id_pendaftaran2, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(RekamMedisActivity.this);
-        queue.add(rekammedisRequest);
     }
 
     private void getPenanganan(){

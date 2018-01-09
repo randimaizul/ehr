@@ -1,0 +1,46 @@
+Pada Aplikasi Android file .java yang digunakan adalah sebagai berikut.
+
+Class
+- Asuransi
+- Dokter
+- History
+- Penanganan
+- Pendaftaran
+- Poli
+- RekamMedis
+- RumahSakit
+
+Helper
+- Session Manager
+
+Activity
+- BerobatActivity
+- BookingActivity
+- LoginActivity
+- MainActivity
+- ProfileActivity
+- RegisterActivity
+- RekamMedisActivity
+- RiwayatActivity
+
+Request
+- AsuransiRequest
+- BookingRequest
+- Dokter2Request
+- HistoryRequest
+- LoginRequest
+- PenangananRequest
+- PendaftaranRequest
+- Poli2Request
+- ProfileRequest
+- RegisterRequest
+- RekamMedisRequest
+- RumahSakitRequest
+
+Adapter
+- AsuransiSpinner
+- DokterSpinner
+- PenangananList
+- PoliSpinner
+- RiwayatList
+- RumahSakitSpinner
