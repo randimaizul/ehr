@@ -1,8 +1,11 @@
 package com.example.dimsu.antrianrs;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -25,7 +28,7 @@ import java.util.ArrayList;
 
 public class BerobatActivity extends AppCompatActivity {
 
-    TextView inpRS,inpPoli, inpDok;
+    TextView inpRS,inpPoli, inpDok,build_berobat;
     private Spinner spinnerPoli;
     private Spinner spinnerRS;
     private Spinner spinnerDok;
@@ -35,9 +38,14 @@ public class BerobatActivity extends AppCompatActivity {
     private RumahSakitSpinner adapterRS;
     private PoliSpinner adapterPoli;
     private DokterSpinner adapterDokter;
+    private AlertDialog.Builder dialog;
+    private LayoutInflater layoutInflater;
+    private View dialogView;
 
     public String id_pasien2;
     public String id_user2;
+    public String nomor_pendaftaran;
+    public String id_pendaftaran;
     Spinner inputRumahSakit;
     Spinner inputPoli;
     Spinner inputDokter;
@@ -265,19 +273,41 @@ public class BerobatActivity extends AppCompatActivity {
 
                             if (!error) {
 
-                                String nomor_pendaftaran = (String) jsonResponse.getJSONObject("user").getString("nomor_pendaftaran");
-                                String id_pendaftaran = (String) jsonResponse.getJSONObject("user").getString("id_pendaftaran");
+                                nomor_pendaftaran = (String) jsonResponse.getJSONObject("user").getString("nomor_pendaftaran");
+                                id_pendaftaran = (String) jsonResponse.getJSONObject("user").getString("id_pendaftaran");
 
-                                Intent book = new Intent(BerobatActivity.this, BookingActivity.class); //penting
-                                book.putExtra("nomor_pendaftaran",nomor_pendaftaran); //penting
-                                book.putExtra("id_pendaftaran",id_pendaftaran); //penting
-                                book.putExtra("id_pasien",id_pasien); //penting
-                                book.putExtra("id_user",id_user); //penting
+                                dialog = new AlertDialog.Builder(BerobatActivity.this);
+                                layoutInflater =getLayoutInflater();
+                                dialogView = layoutInflater.inflate(R.layout.berobat_builder,null);
+                                dialog.setView(dialogView);
+                                dialog.setCancelable(true);
+                                dialog.setTitle("Cek Pendaftaran");
+                                build_berobat = (TextView) dialogView.findViewById(R.id.builder_berobat);
 
-                                Toast.makeText(BerobatActivity.this, "Berhasil Daftar Berobat", Toast.LENGTH_SHORT).show();
+                                dialog.setPositiveButton("Yakin", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
 
-                                BerobatActivity.this.startActivity(book); //penting
+                                        Intent book = new Intent(BerobatActivity.this, BookingActivity.class); //penting
+                                        book.putExtra("nomor_pendaftaran",nomor_pendaftaran); //penting
+                                        book.putExtra("id_pendaftaran",id_pendaftaran); //penting
+                                        book.putExtra("id_pasien",id_pasien); //penting
+                                        book.putExtra("id_user",id_user); //penting
 
+                                        Toast.makeText(BerobatActivity.this, "Berhasil Daftar Berobat", Toast.LENGTH_SHORT).show();
+
+                                        BerobatActivity.this.startActivity(book); //penting
+                                        dialog.dismiss();
+
+                                    }
+                                });
+                                dialog.setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                       dialog.dismiss();
+                                    }
+                                });
+                                dialog.show();
                             }
 
                         } catch (JSONException e) {
