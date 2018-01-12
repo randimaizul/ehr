@@ -25,7 +25,7 @@ Versi website ini akan di akses oleh :
   - Activity : BerobatActivity, BookingActivity, LoginActivity, MainActivity, ProfileActivity, RegisterActivity, RekamMedisActivity, RiwayatActivity.
   - Request : AsuransiRequest, BookingRequest, Dokter2Request, HistoryRequest, LoginRequest, PenangananRequest, PendaftaranRequest, Poli2Request, ProfileRequest, RegisterRequest, RekamMedisRequest.
   - Adapter : AsuransiSpinner, DokterSpinner, PenangananList, PoliSpinner, RiwayatList, RumahSakitSpinner.
-  - Helper : SessionManager
+  - Helper : SessionManager.
   - Class : Asuransi, Dokter, Penanganan, Pendaftaran, Poli, RekamMedis, RumahSakit (class sisanya skeleton saja karena tidak digunakan pada aplikasi android).
 
 # API untuk Android
