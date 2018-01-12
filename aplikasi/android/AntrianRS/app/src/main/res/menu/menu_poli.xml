@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/action_daftar"
+        android:orderInCategory="100"
+        android:title="@string/daftar_poli" />
+
+    <item
+        android:id="@+id/action_informasi"
+        android:orderInCategory="101"
+        android:title="@string/informasi_poli" />
+</menu>

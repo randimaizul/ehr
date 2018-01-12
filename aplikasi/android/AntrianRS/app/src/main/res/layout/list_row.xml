@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@layout/list_new_selector"
+    android:padding="8dp" >
+
+    <!-- Id Riwayat -->
+    <TextView
+        android:id="@+id/idRiwayat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+
+    <!-- Id Obat -->
+    <TextView
+        android:id="@+id/idObat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idRiwayat"
+        android:layout_marginTop="1dip"
+        android:textSize="@dimen/rating" />
+
+    <!-- Id Penanganan -->
+    <TextView
+        android:id="@+id/idPenanganan"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idObat"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/btnColorBlack"
+        android:textSize="@dimen/genre" />
+
+    <!-- Tanggal -->
+    <TextView
+        android:id="@+id/idTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/div"
+        android:textSize="@dimen/year" />
+
+</RelativeLayout>
