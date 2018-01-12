@@ -35,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         final EditText txtKoPas = (EditText) findViewById(R.id.txtKoPas);
         final EditText txtPhone = (EditText) findViewById(R.id.txtPhone);
-        //final EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
         final EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
 
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
@@ -54,7 +53,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String username = txtKoPas.getText().toString();
                 final String no_telepon = txtPhone.getText().toString();
-                //final String email= txtEmail.getText().toString();
                 final String password = txtPassword.getText().toString();
 
 
@@ -71,10 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if (!error){
                                 Intent inlog = new Intent(RegisterActivity.this, LoginActivity.class);
                                 RegisterActivity.this.startActivity(inlog);
-                                //AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                //builder.setMessage("Pendaftaran Akun Berhasil");
-                                //builder.setNegativeButton("OK",null);
-                                //builder.show();
+
                                 Toast.makeText(RegisterActivity.this, "Pendaftaran Akun Berhasil", Toast.LENGTH_SHORT).show();
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
