@@ -12,7 +12,15 @@ Versi website ini akan di akses oleh :
 - Arsitektur desain : HMVC
 - Design Pattern : Adapter dan singleton
 - ORM / Object Persistensi-nya terdapat pada folder `aplikasi/website/application/models/Adapater.php`
-- Controller dan View-nya terdapat pada folder `aplikasi/website/application/modules/` (struktur HMV)
+- Controller dan View-nya terdapat pada folder `aplikasi/website/application/modules/` (struktur HMVC)
+
+# Versi Android 
+Versi website ini akan di akses oleh : 
+- Pasien
+
+### Keterangan
+- a
+- b
 
 # API untuk Android
 - Akses API : [api.taungapain.com](http://api.taungapain.com/api/rsakit)
