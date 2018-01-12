@@ -19,9 +19,15 @@ Versi website ini akan di akses oleh :
 - Pasien
 
 ### Keterangan
-- a
-- b
+- Installer android (apk) terdapat pada folder `aplikasi/apk_android/EHR2.apk`
+- Design Pattern : Singleton dan Adapter.
+- File .java yang digunakan adalah sebagai berikut.
+  - Activity : BerobatActivity, BookingActivity, LoginActivity, MainActivity, ProfileActivity, RegisterActivity, RekamMedisActivity, RiwayatActivity.
+  - Request : AsuransiRequest, BookingRequest, Dokter2Request, HistoryRequest, LoginRequest, PenangananRequest, PendaftaranRequest, Poli2Request, ProfileRequest, RegisterRequest, RekamMedisRequest.
+  - Adapter : AsuransiSpinner, DokterSpinner, PenangananList, PoliSpinner, RiwayatList, RumahSakitSpinner.
+  - Helper : SessionManager
+  - Class : Asuransi, Dokter, Penanganan, Pendaftaran, Poli, RekamMedis, RumahSakit (class sisanya skeleton saja karena tidak digunakan pada aplikasi android).
 
 # API untuk Android
-- Akses API : [api.taungapain.com](http://api.taungapain.com/api/rsakit)
+- Akses API : [latif.taungapain.com](http://latif.taungapain.com)
 
