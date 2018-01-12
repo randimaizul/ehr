@@ -26,7 +26,7 @@ Versi website ini akan di akses oleh :
   - Request : AsuransiRequest, BookingRequest, Dokter2Request, HistoryRequest, LoginRequest, PenangananRequest, PendaftaranRequest, Poli2Request, ProfileRequest, RegisterRequest, RekamMedisRequest.
   - Adapter : AsuransiSpinner, DokterSpinner, PenangananList, PoliSpinner, RiwayatList, RumahSakitSpinner.
   - Helper : SessionManager.
-  - Class : Asuransi, Dokter, Penanganan, Pendaftaran, Poli, RekamMedis, RumahSakit (class sisanya skeleton saja karena tidak digunakan pada aplikasi android).
+  - Class : Asuransi, Dokter, Penanganan, Pendaftaran, Poli, RekamMedis, RumahSakit (class sisanya baru skeleton saja).
 
 # API untuk Android
 - Akses API : [latif.taungapain.com](http://latif.taungapain.com)
